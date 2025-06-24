@@ -1,0 +1,1096 @@
+{
+    "data": {
+        "getAssetDetailsLevel1": {
+            "id": "67b5089e0f048c05bab3dc6d",
+            "rows": [
+                {
+                    "id": "67b5089e0f048c05bab3dc6f",
+                    "name": "dataset-1-parquet/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc71",
+                    "name": "dataset-1-json/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Email Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc73",
+                    "name": "dataset-2-json/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Medical History",
+                        "Payment Card"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Medical History",
+                            "id": "MedicalHistory",
+                            "isPersonal": true,
+                            "isSpecial": true,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc75",
+                    "name": "dataset-1-csv/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Age",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Age",
+                            "id": "Age",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc77",
+                    "name": "a/c/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Payment Card",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc79",
+                    "name": "dataset-4-json/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Physical Health"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Health",
+                            "id": "PhysicalHealth",
+                            "isPersonal": true,
+                            "isSpecial": true,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc7b",
+                    "name": "dataset-3-json/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Payment Card",
+                        "Physical Address",
+                        "Physical Health"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Health",
+                            "id": "PhysicalHealth",
+                            "isPersonal": true,
+                            "isSpecial": true,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc7d",
+                    "name": "dataset-2-parquet/",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Email Address",
+                        "Physical Health"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Health",
+                            "id": "PhysicalHealth",
+                            "isPersonal": true,
+                            "isSpecial": true,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc7f",
+                    "name": "a/b/addresses.csv",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc81",
+                    "name": "a/b/biostats.csv",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Sexual Data"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Sexual Data",
+                            "id": "SexualData",
+                            "isPersonal": true,
+                            "isSpecial": true,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc83",
+                    "name": "a/b/sample.csv",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc85",
+                    "name": "deni/part-00001-cb8d1347-995f-4a72-9e1f-09fac9c5221b-c000.zstd.parquet",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Advertiser ID",
+                        "Cookies",
+                        "Country",
+                        "Device ID",
+                        "Device Information",
+                        "Device Operating System",
+                        "IP Address",
+                        "Location",
+                        "Physical Address",
+                        "UID",
+                        "User ID"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Advertiser ID",
+                            "id": "AdvertiserID",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Cookies",
+                            "id": "Cookies",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Country",
+                            "id": "Country",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Device ID",
+                            "id": "DeviceID",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Device Information",
+                            "id": "DeviceInformation",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Device Operating System",
+                            "id": "DeviceOperatingSystem",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "IP Address",
+                            "id": "IPAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Location",
+                            "id": "Location",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "UID",
+                            "id": "UID",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "User ID",
+                            "id": "UserID",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc87",
+                    "name": "deni/sample.snappy.parquet",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Country",
+                        "Device Operating System"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Country",
+                            "id": "Country",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Device Operating System",
+                            "id": "DeviceOperatingSystem",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc89",
+                    "name": "a/b/addresses.csv.gz",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Name",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Name",
+                            "id": "Name",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc8b",
+                    "name": "a/b/mlb_players.csv.gz",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Age"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Age",
+                            "id": "Age",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc8d",
+                    "name": "root-level.parquet",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Payment Card",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc8f",
+                    "name": "sample-file.parquet",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Payment Card",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc91",
+                    "name": "a/b/SAMPLE.json",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Age",
+                        "Credentials",
+                        "Date of Birth",
+                        "Email Address",
+                        "Gender",
+                        "Photos",
+                        "Social Security Number",
+                        "Telephone Number",
+                        "UID",
+                        "User ID"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Age",
+                            "id": "Age",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Credentials",
+                            "id": "Credentials",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Gender",
+                            "id": "Gender",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Photos",
+                            "id": "Photos",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Social Security Number",
+                            "id": "SocialSecurityNumber",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Telephone Number",
+                            "id": "TelephoneNumber",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "UID",
+                            "id": "UID",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "User ID",
+                            "id": "UserID",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc93",
+                    "name": "a/b/sample-file.parquet",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Payment Card"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc95",
+                    "name": "users_1.7m.json",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc97",
+                    "name": "a/b/certificate.pem",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Credentials"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Credentials",
+                            "id": "Credentials",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc99",
+                    "name": "a/b/adt_a01_ex5.hl7",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc9b",
+                    "name": "a/b/sample.log",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc9d",
+                    "name": "a/text-dump/main.log",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dc9f",
+                    "name": "a/b/sample_pii_file.txt",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Payment Card"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dca1",
+                    "name": "a/text-dump/sample_large_pii_file.txt",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Date of Birth",
+                        "Email Address",
+                        "Payment Card"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Date of Birth",
+                            "id": "DateOfBirth",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dca3",
+                    "name": "a/b/sample.rtf",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dca5",
+                    "name": "a/b/sample.xlsx",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Age",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Age",
+                            "id": "Age",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dca7",
+                    "name": "a/b/sample.xls",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dca9",
+                    "name": "a/b/sample.ods",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcab",
+                    "name": "a/b/sample.docx",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcad",
+                    "name": "a/b/sample.md",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcaf",
+                    "name": "a/b/sample.pptx",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Age",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Age",
+                            "id": "Age",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcb1",
+                    "name": "a/b/sample.yaml",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcb3",
+                    "name": "a/b/sample.xlsm",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcb5",
+                    "name": "a/b/sample.msg",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Email Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcb7",
+                    "name": "a/b/sample.xlsb",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcb9",
+                    "name": "a/b/sample.feather",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Age",
+                        "Physical Address"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Age",
+                            "id": "Age",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Physical Address",
+                            "id": "PhysicalAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcbb",
+                    "name": "a/b/sample.text",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcbd",
+                    "name": "a/b/sample.eml",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": [
+                        "Age",
+                        "Driver ID",
+                        "Email Address",
+                        "Payment Card"
+                    ],
+                    "linkedVendor": null,
+                    "dataCategories": [
+                        {
+                            "name": "Age",
+                            "id": "Age",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Driver ID",
+                            "id": "DriverID",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Email Address",
+                            "id": "EmailAddress",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        },
+                        {
+                            "name": "Payment Card",
+                            "id": "PaymentCard",
+                            "isPersonal": true,
+                            "isSpecial": false,
+                            "__typename": "DataCategory"
+                        }
+                    ],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                },
+                {
+                    "id": "67b5089e0f048c05bab3dcbf",
+                    "name": "a/b/sample.pdf",
+                    "type": "ASSET_TYPE_OBJECT",
+                    "dataTypes": null,
+                    "linkedVendor": null,
+                    "dataCategories": [],
+                    "contextTags": null,
+                    "__typename": "AssetObjectSummary"
+                }
+            ],
+            "totalRows": 41,
+            "totalFilteredRows": 41,
+            "__typename": "AssetObjectList"
+        }
+    }
+}

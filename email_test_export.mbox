@@ -1,0 +1,2346 @@
+From 1834484276901860509-1749500537000 Mon Jun 09 08:22:18 2025
+Delivered-To: relyance-test@denisolt.com
+Received: by 2002:aa7:d054:0:b0:607:2b5:92ed with SMTP id n20csp1615536edo;
+        Mon, 9 Jun 2025 13:22:18 -0700 (PDT)
+X-Received: by 2002:a05:6602:4182:b0:86c:ab5d:8af3 with SMTP id ca18e2360f4ac-87454a5287fmr140725439f.8.1749500538495;
+        Mon, 09 Jun 2025 13:22:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749500538; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hfXUc2krhwixiru1z1fr7iJJ3BloNrU69oyD0hqCbMmWE9uuCOe/ZdA8wQ1MofYqwC
+         NDZaqibuLlFJNtqnguDyAvL1auVc+eB2RB0+U07voY0BJnn46X/xKthJG2gwnWZeDPdd
+         MvXhhr6lSgwut1v4LRGKz61Ht3GkkETlMaOalijGHrIEZrW7HNiq7W5STaa3+APRwngm
+         l8ugxcqldYumxg3bcGmgWDBHfRzXXRy2MI73AOIAhUahg+wyIsdj+BuwCeceUB7vlMs2
+         YyWfgr8sCd4AbJ9htK/8cQDrVfX4jaFGY8u5wur3tsPBxgSNURFAh5nkXM5XhIQyUHRq
+         keSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :dkim-signature;
+        bh=ECbwtVAPhjpNh7FbaiPC8hs/OY5YlfgmqtkP23QXdZw=;
+        fh=uHMkSlnV/R28K5JKD7wbSWOAob/gxFHq9bmP6u9Mbtg=;
+        b=lbsLhHYGfMc/XHHjb9/sK1I+FhlhOvvEEcdTWFzzYlJoC1sQZWxgYebzTSZoAMSp/b
+         E1vUKEDr0c/6ZS32zHILrY3DQrI2pnYjdav6z+MZiuTP2tR2QVFYRtXP2TFl75Hq/m18
+         aTjKGrr9Cdtzzl7lNRn9HEr0C1XeZEFOErARcaeWdHGRSaVotvY7o95M5DHeQK3EqmUG
+         DSXGsLRRXg6t1sDljnHwo/Q/8oj+dukfXuxTJODRa8U03K82mxwz7nhUL8uKFaCBybH/
+         u+DL4S67CUj6/Ltw9ec0KxaI608kaXSw3jrzhGC+68fulXh3v1vIF65AbKZfWwA31j+P
+         aDAA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=M12ZAWl9;
+       spf=pass (google.com: domain of 3eujhabukagqonqwf1ncvhqto-pqtgrnaiqqing.eqo@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3eUJHaBUKAGQoNQWF1NCVHQTO-PQTGRNaIQQING.EQO@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@denisolt.com
+Return-Path: <3eUJHaBUKAGQoNQWF1NCVHQTO-PQTGRNaIQQING.EQO@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id ca18e2360f4ac-8756ce46484sor3719839f.4.2025.06.09.13.22.17
+        for <relyance-test@denisolt.com>
+        (Google Transport Security);
+        Mon, 09 Jun 2025 13:22:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3eujhabukagqonqwf1ncvhqto-pqtgrnaiqqing.eqo@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=M12ZAWl9;
+       spf=pass (google.com: domain of 3eujhabukagqonqwf1ncvhqto-pqtgrnaiqqing.eqo@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3eUJHaBUKAGQoNQWF1NCVHQTO-PQTGRNaIQQING.EQO@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@denisolt.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1749500537; x=1750105337; darn=denisolt.com;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ECbwtVAPhjpNh7FbaiPC8hs/OY5YlfgmqtkP23QXdZw=;
+        b=M12ZAWl9m4DREUUFqFl1V7OwIhnGNFow15wCleHGGpLKZr6clXgQKKhSkWQWKr0YRh
+         87v0mg79pueDqJoVTi1W4y1uXc9sVEVVkrGhVaDoL7CyPFCg4afuOl4w4KGARKjxTxvy
+         i7qf28+QxIjeSIT1+6oylPYudr1DRaFYXpK/ELL0S6L6sKYXqhXwBxPptZlSX8PXZtvM
+         +NOaMoVwYJOMHMWqy2l1mDHfWDrpUPSw5Cr78qPGJb5nY/Hfl7Dv8hNMFFup7lcgGiFu
+         zIt8GcBxKVxlQZ5nhWjEZsyZ779hu95WrshH+DiDweKzhZD5zfiJwSHPlPdChup5kBPS
+         pfaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749500537; x=1750105337;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ECbwtVAPhjpNh7FbaiPC8hs/OY5YlfgmqtkP23QXdZw=;
+        b=s74RGbiJXWooJGoW+RzrZanK7fsHT7IxY0s9IY/EVPkFQQ+9M6cY7/CTN4iMm5cn5V
+         a/u1DEGU4qLkAeFFB4r7Tc+XOVVZ3C3puopW70MNQb43BMNU/KhdN3PBFGxIJDoy6Z+u
+         X0y9KrvBUR3sTZaA56FkmNBHXbhr54OXz2uswhpG1mClhjrhjrg62U7Jai625pVJrMHQ
+         3A3kFeKYrit/LaqnFSSn/Avrql/TyaSpk0hMD0G4ukWMCEthA0yUHmOtMH2YX9B0kUHi
+         M97hAyPNCxlZAAlZVi/2U5kYYBOGJ1LsNatVwlo2CjTn0zoeN6Ay/qhQnUU4Ubo+HL6E
+         V4Uw==
+X-Gm-Message-State: AOJu0YwIGadaZgOxkAHxnDx6MFxqt67NhPCF2O1JmIn9HYVk10SlbHX4
+	n1YmIh1zJ+Lvefy3w8teL7P4DHmNd68eJb8DDQhivkSVSsrjp2v9RaJ23snR
+X-Google-Smtp-Source: AGHT+IGLtbHmVn8FUivpfQQHas80K+UsdxJbNHP6HvJPtH+yJgJmIR04rqpN3/pGM0KZtSKtEIL6ocM=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6602:4182:b0:86c:ab5d:8af3 with SMTP id
+ ca18e2360f4ac-87454a5287fmr140719039f.8.1749500537620; Mon, 09 Jun 2025
+ 13:22:17 -0700 (PDT)
+Date: Mon, 09 Jun 2025 13:22:17 -0700
+Reply-To: Google Cloud <CloudPlatform-noreply@google.com>
+X-Google-Id: 4033792
+Feedback-ID: P-43-0:C20061640:M110338475-en:gamma
+X-Notifications: 93ec91d840ea0000
+X-Notifications-Bounce-Info: AWoTSIHzMfCTW2FV37qCPSz_ZRvtsOqSD2iw2kZhuXnjqczgCZ3CJzDBuLv8xWJ7pGp3-LRNK4CZ6UX7EWKxZQU4Ia8o0s0cu6Kyefcps62frBlH8cYbEsaUMkqeieQSDmRWz0ogmYYiQG5IueweADW2ZkrujXxwVxptucQ6YhzaBXl6uLX0N3tFzgiP3zWoXc8e4_39fWrxbcbg5vQ0-hR_2JoD7VNrU7g_Tnpelge9CXa86K9yr5ZaPY8d8pqnstYVNBhqQZokd85vgrH6_EIXw9bre5A1aK2_LaZyF7VA0AxWwTo418p0B-8ZTPL95hlidhlh6g7F9FgSEcfdVC1oGmwEP-ZXVMl1x7Zp7dMh6dT7bEwASD-dzMowaqf72rKdtDTFRtxMY4uovQfAoZbxnLEb4XKZaNcnfI-sYW_Jvh8XEiW_VJLOEU1vTYqfMgJ8WeOCMZspBv0YivG9TyXD3Qixe_j7-geQ9U_Z604jaC265_9dxNyiKd8NjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <38027a0d68c26c4a80025f3a700eaaf1650b42df-20061640-111477878@google.com>
+Subject: Account confirmation: Your Google Cloud free trial
+From: Google Cloud <CloudPlatform-noreply@google.com>
+To: relyance-test@denisolt.com
+Content-Type: multipart/alternative; boundary="00000000000014488d0637295683"
+
+--00000000000014488d0637295683
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+R29vZ2xlIENsb3VkICANCjxodHRwczovL2MuZ2xlL0FOaWFvNXFac3lfc0J6U3R0U1hEdG1DWkJ5
+Vl9QVk9wcXdYY2pLLWdTSEhqUXhHbHV4Z015UHJwaUVqUGtPS21oWU1zaW1KTldTUnoxbzY5LWZ1
+c3JEN2ZjZkRkaHhoU05UTkxRXzAwNGhta3ZGTnlrN3BMYkFqcUVhTDBEUjZkaFFNb1lCMzNoUUFx
+SEJqUTdTR1dnaGI3N1h2VFJJbnd0ckJ4dkJWcEd1RnR0TWxla21xVEFyOThPdDRzUnN6cEJ3NE1j
+YV9WU2RCRndIdVUyTFlpZUo3WXU1TXJiZkRXOWVrOGRDbTVjVHhXUVliVmNqZXU5OEVrSy02cHdS
+MnFLN1J0UWJCMUhRPg0KDQpHbyB0byBteSBjb25zb2xlICANCjxodHRwczovL2MuZ2xlL0FOaWFv
+NXE2ZE1IaUpnTTF4ZTNoOWZVMUhGV3NKbWVsaG1KM3Jnd09yYXhBSXBaSlBuUTlIbWhrWURuODlN
+X3kyREswZXZYTV9fdHN2WHA2V0JqM3BqR0JLZTIxc05hS2dUOG1DTHk4Ujd0M3F3U2NYZmRzeW9n
+OWxKU1ZfLWg1MjRCVzdwM3A0NkQzYVl3c0thMkd6MDU4Zm5lS0ZUd1U1eVFFa3lZMTZYc2pwaWdT
+OThUSFJvbEVDM050cVJKVU5lcHdhVjRvYlFlNWRxQkhkcV9WN01SemI0ZWl1cmhBNDFzTlgxdDVu
+QmlZbHVEZ2hsZHNnTVhyLVpKMjdKZzIwWE54SVkzcEVzbEVFRUhfUzdMTmh4eHE+DQoNCldlbGNv
+bWUgdG8gR29vZ2xlIENsb3VkLg0KDQpMZWFybiB0aGUgZnVuZGFtZW50YWxzIHdpdGggdGhpcyB0
+dXRvcmlhbCAgDQo8aHR0cHM6Ly9jLmdsZS9BTmlhbzVvUVhydmw3NEx6d2dUM0ZvYU1BUWJMOHVv
+ZU1nUW5DNTB6Z214alVOLWNDamhvYjJoZmljS01FNmpINUdwRkxLdnpleThzUVFzVWZXWkFqWmJB
+MmQxak55YWp5NkJramdfYzIzZHI1MWMtc2Y0eFc0R3RNLTdqeG11QU44ZE9iRDM4V2t0VjVPQnhI
+NlZ6OVhSV0tWdTh5anFUZ1FJTG5BejMtaTR2czdzS3hXcHdTVVVfQU5SOUpRRTFWdXFwRnRwa1Vx
+ZjVIMFFlQWpjZTlFUzZGNERscUk4bWl1ZnVZMXJxcURBMklMdW5oSHVCdGFoUE9sbG8yeTJibmhF
+dHVZYkF1ekRIMVdHc3U2cWYxWm9PWjRQUFNhNnc0NEpjNGdQLWxjYUVuT1NiYm1SMDFPdUlmc1M0
+Y3djbTl3UXNzSk1PWnYtaVppdjBCR3BEVGViajlROFoxZXppN0JWRGVybldEbmJmaW1WV0pIQT4g
+IA0K4oCTIGFuZCBzZWUgd2hhdCBlbHNlIHlvdSBjYW4gZG8gZm9yIGZyZWUgb24gR29vZ2xlIENs
+b3VkIHdpdGggb3VyIEFsd2F5cyAgDQpGcmVlIHRpZXIuDQoNCkdvIHRvIG15IGNvbnNvbGUgIA0K
+PGh0dHBzOi8vYy5nbGUvQU5pYW81cjlzTWd2RExBZjNXcmpJa09Vd0NPUXBfLXl3WEltbGswZy04
+akhscmNheV9LR09JOE5zVFZGYkVLaEhBME1FWHJBV2IxTUVJTTNlY0FQM0pyYlVGRVZlN0gwRlpq
+RUltendOajFTMDFiblZSWUdCT3lqc0tHZnBkWWJhWWRRalVNelVNTDhBZWswY3VjVTBxRDV5dUs1
+X0FFcy1SQ3A0ODJMdjU4ZFU3WXVDY21iMG5JVXJ0c2FwVDlIbGQxOUp0RHZvYy1fYWxZM3BtX2Rz
+WjhjTllza3lsd0d2d0lsSThuSzhnUng4ZUpxVmZVbm1wQVRUQ1JoejhfSHB6TjViT21BY0k4U2ZS
+RTJQLXNwRDFRMllNaVJUSHNHYm5pTzdneGlfak1GekdqX3NBPg0KDQpCZWdpbm5pbmcgdG9kYXks
+IHlvdSBoYXZlICQzMDAgVVNEIGluIGNyZWRpdCB3aGljaCB5b3UgY2FuIHVzZSB0bzoNCg0KLSBF
+dmFsdWF0ZSBHb29nbGUgQ2xvdWQgcmlzay1mcmVlKg0KDQotIEV4cGxvcmUgYSB3aWRlIHJhbmdl
+IG9mIEdvb2dsZSBDbG91ZCBwcm9kdWN0cyBhbmQgc2VydmljZXMg4oCTIGZyb20gQ29tcHV0ZSAg
+DQpFbmdpbmUgIA0KPGh0dHBzOi8vYy5nbGUvQU5pYW81cV9xXzFhRkdmZDRYQVdCWDA1SDF4S2pW
+aHFPWFdMX3JxQlZFb2RveFFjQm14TmdHSWZSMERWazhiMHNKaDc4dDRRdTV4a2ZneVhfeklvT0c2
+VkpocHczQzNQUHhIcUZVTjFxd2RVcV9JTVNiOXgxRjM0NzhmNjF0Ym5pT216ckNNMVJJaVBnZEpx
+OW5RUUFFMVhUWURqM19MZzZfUi1LQklySVI4PiAgDQphbmQgQmlnUXVlcnkgIA0KPGh0dHBzOi8v
+Yy5nbGUvQU5pYW81cDdBdVZCaVNvSU5BV29QR1lYY1pPRnYzdTJrdndhSWI2cXpLZ1haZEF6TVdn
+LWZ2LTQzRTNNSXN2Z1RFcDd3NzZYZlBqWG4yWE5Bb3BQdm5ESk9Mb1Z6WW1vU3Btd0RXTDNoZVhT
+Z0MzRDNhNmRxbm9NTTlncFBFdU5rdGs5OFpZRU1TV3lET3lzV280NW1hdXQ+ICANCnRvIGluZHVz
+dHJ5LWxlYWRpbmcgQUkgIA0KPGh0dHBzOi8vYy5nbGUvQU5pYW81cGdsaXlxSWp3V3R0OWFZT1p6
+NmNMaDRaRDlOZS00aUlYXzFPR2RnM2xOOExySW8zRTNfU1Vpb3dIbnc2Z2s1QVZRMWdZcnRxVnJQ
+RnZkZzFteHluS2pXa2pPMFl1dEhleGFsYlEtSFhSbzBwT0hYWkFLUkNqTU1GWkx0bWpJZzJ1Zlg3
+Y0ZNTzNhMmpFVkVWNzg2anB1bzRkSUxGQmNrSzQ2VVJMYVhUbk5RSTZ6Pi4NCg0KLSBFYXNpbHkg
+Y2hlY2sgeW91ciBjcmVkaXQgdXNhZ2UgYnkgdmlzaXRpbmcgdGhlIGJpbGxpbmcgc2VjdGlvbiAg
+DQo8aHR0cHM6Ly9jLmdsZS9BTmlhbzVxQXVFWE9sdFZZNkdrZG04cmthUHNXVWJISzFjZUNLbkxU
+Vk14Nkx3Vy1pcWJ6QkJ1djVDQVh3T1ota00yanJwWS1ObmFyaXQtc2M2WXJVdEpZUU9HdUR6bmFX
+RmpZSzVHdUtGTS1jSkRYbjBKY2p5ZUN5RHRudHJyTHJoc0Mtck92RVJXZkVVcS0tbzFxVTdVOTFG
+S1VSRWNrPiAgDQpvZiB5b3VyIEdvb2dsZSBDbG91ZCBjb25zb2xlDQoNCg0KU2VlIHdoYXTigJlz
+IGFsd2F5cyBmcmVlLg0KDQpCZWZvcmUgZGl2aW5nIGludG8geW91ciBmcmVlIHRyaWFsLCB0YWtl
+IGEgbW9tZW50IHRvIGV4cGxvcmUgb3ZlciAyMCAgDQphbHdheXMtZnJlZSBwcm9kdWN0cyBpbiBv
+dXIgQWx3YXlzIEZyZWUgdGllciAgDQo8aHR0cHM6Ly9jLmdsZS9BTmlhbzVyb2huenNOS0tZbnFV
+VXd0R3V3VnpOc082WDBaM1h1UDhnWnE2ZnJBVmtGRTNCYW9uMTZURmM1Zjc4Tl9GZERoRzU4Wmgw
+SEdfWWUzX3V3ZTZoMTZYbGVrWVFtNXBlczd4elZBTUFvZUkybFItWXh6WjhqaEc0Y0liR3U5Rk9r
+VXBUVGl4LTE5WEtGY0EzY01Ia1B0RU8wNTROVWR5RDdTYm1qOVU3a0E5bFBOMUJnQllKS3haZVc2
+aDRPMXRLbGdNckxnbFpOQzBsaDRUWGtFbDBPUXZDTFdtdFRRYzllbm9jT0J4ZEFtbHNtMV81dTRB
+Y25lTjk0MFZwOXZ6S2FLWFhqREV0Zlk4bmVUWDRoUERkenV2QjFPWmtac0tITVJDRkhTOVRWNk1D
+cVhNZjRkMlQ0Y2J0RUtjd3lhSUdKekU4OFAwblVJV0dfcVlTPi4gIA0KVGhlcmXigJlzIG5vIGNo
+YXJnZSBvciBjcmVkaXQgY29zdCB0byB1c2UgdGhlc2UgcHJvZHVjdHMgdXAgdG8gdGhlaXIgIA0K
+c3BlY2lmaWVkIHVzYWdlIGxpbWl0Lg0KDQpHZXQgaGFuZHMtb24gbm93IHdpdGggdGhpcyBxdWlj
+ayBDbG91ZCBjb25zb2xlIFRvdXIgIA0KPGh0dHBzOi8vYy5nbGUvQU5pYW81b1VBQkhtVDVJeVlh
+NlpHdW1QYTF1YUNmX3hpZGhLLVExX0QwbG1RWmIxN1d3czVBS3I5V0lqTk00VkEtSHdnUzlrMFhf
+WEkyX1Zka0Q4QU02M0RvcEhiUnd0TnhhUnQzTnI4NzhxRC1RZWwta1A2d3RINkczRkMwUG8yV0Q2
+bk52WWtEeHotalBudlVhOE12c3l4RHBVLTVWeXNOa3hQNkhzenJiZzdSNF9hWUttajBWUkpERjZo
+dW5TSGtiQ0E1MnE0emt3aUU5STRFY2lUbm5uektmUlJyQ2ZFcG4zZTVfOVZTb3hYazZ6RFEtVEhi
+NUMtX3F2X19VYjFMdDFIMGdUUVhicWRHa3lmLWRkcWUwWUNySVhhaW9XQUxTVV9kRFlCRng2M2Vi
+SWFwZ2NEeGhheXIxUUlyaXhzeWVtV0FsSXgwY3g0aHY4b3NxM0tMaDhGckVwVURuTWM1TzE2SDhH
+VFVOT0tzcWJ2OHZFMGJTQXNWMjh6NnVJUEllaj4sICANCmhpZ2hsaWdodGluZyBob3cgdG8gZWFz
+aWx5IG5hdmlnYXRlLCBvcmdhbml6ZSwgYW5kIG1hbmFnZSB5b3VyIHByb2plY3RzLiBUbyAgDQpz
+dGFydCBleHBsb3Jpbmcgb24geW91ciBvd24sIGp1c3QgdmlzaXQgeW91ciBDbG91ZCBjb25zb2xl
+Lg0KDQpHbyB0byBteSBjb25zb2xlICANCjxodHRwczovL2MuZ2xlL0FOaWFvNW9nSG9OcVNiMTlO
+eVBla2NaUDdqaGd0cG1RcF80V21vNERDOUJNaWRlRzBvRmZDcmw4dXJFMTV3Y2Q1Nk1YNGdJVkhs
+Um9teXRnVGRud0gwcjVSTzhjbjZ5T2dtZGN0aVYxOFVUZ2ViaFJkelIyRlcwRnZxWVRyU0QwQ0h3
+aUt1bFRja21YNnplNUthMEZ0QlRtUXMyWnF4bmJtOE1Hc0QxSGlwLVp2RExfbi1tV2xNUVNJVnZW
+MmI3WVdPUWNDal9YMXZKYmRKLVZJeEs3NTgxVXMzX1lqQUZDdV9zRHNnUlJ3cEt0ci1uNmR4bjhR
+Z1JtMU5uRkJLZUpQYmJVRXhseHBRQlQxWmpGWTR6VGpzYi1DN0R0MEQtSTVXVkoxWjhIem9NOEhq
+YXY+DQoNClNlZSB5b3UgaW4gdGhlIGNsb3VkLA0KVGhlIEdvb2dsZSBDbG91ZCBUZWFtDQoNCiog
+WW91ciBmcmVlIHRyaWFsIHN0YXlzIGZyZWUuIElmIHlvdSB1c2UgYSBjcmVkaXQgb3IgZGViaXQg
+Y2FyZCwgdGhlcmXigJlzIG5vICANCmNoYXJnZSB1bmxlc3MgeW91IHR1cm4gb24gYXV0b21hdGlj
+IGJpbGxpbmcuIElmIHlvdSB1c2UgTmV0QmFua2luZywgeW91IGNhbiAgDQpyZXF1ZXN0IGEgcmVm
+dW5kIG9mIHlvdXIgb25lLXRpbWUgcHJlcGF5bWVudCBieSBjbG9zaW5nIHlvdXIgQ2xvdWQgYmls
+bGluZyAgDQphY2NvdW50Lg0KDQoNClN1cHBvcnQgIA0KPGh0dHBzOi8vYy5nbGUvQU5pYW81cXNs
+VmVqWEo5MzV3RnktZVB6LS15WHEtNDBxLTQxeHNsUldvMlhYcmJGcE43aWJ0OU1aZEpIUURfdnVf
+d0NHQkpQcFZRdWJJbi1JSk0wTzlsUnhITGc5eS1jcUh1S2xzV3p3YUJjQUN2dUViVk56d0tMQlJK
+UlhtaFRzb3g3NktBY2pzWVREUDBTY1RMTlY1LXQ4WlFmSFZzRUVPU3NmaTJ1VktsQk9NbUtnOW9p
+R00yYjdkWjVMYzM2bzhLWXBvQWhMLXJ2UXdMaDl1di1zc1d6eHNrbUg5Y2ROQkp3SnRFSkVkaGEy
+NHVUbXBGeXR1ZjROQ0l3YnFoYXVnaUxwWV9EcmN2ZkprYVFWSDdoOVE+DQoNCkZvcnVtcyAgDQo8
+aHR0cHM6Ly9jLmdsZS9BTmlhbzVwVG5TSURzN0VDTWFha18zek1EWmVTMlZ6R1dNN1pvQnNvdFBw
+SWsweTMweFNPWlRFeFFMTjhVZ3BNdWhnOUdSTnBYR3BHeUlCcjRVV292ZkpVVmY1Q3BnSEtNM0dq
+Y2V6RV9UTktPTnIxa0ZGTUZobjJzNGdCRWJkdG1kcXhjbmJlVHkxQ1FTWEY+DQoNCkRvY3VtZW50
+YXRpb24gIA0KPGh0dHBzOi8vYy5nbGUvQU5pYW81cW5UR1RDYTRack9raFQ4ZGhMRTBHR04wUzk5
+d2QwZnZNWVBFczN5MWJmYjVtSzdobjF1MS1DQm52T1ZLcWpsWUJ2VmJGdDF2dXlkdTRCaXJYTk1B
+akFuUmd6QU1lVUhwRVBqN3pHSWNncmhibk9hVHFxZ3QzT2FTeDdXb0NRQlNPZzd1VmREdFRpYUR5
+dFl4LTkyODREOHNXRUNqVWVoOUZWdHFvRkpoNUN6RzdkSnZJMjlHSElDSFNYVmljYU1sZ3RDaUds
+R1ZhLUI1bjh1ZlI4MDJTNHVqdGdHaGpaMHQ5Z2ZxZVltZE1JWTRHRExJWFFfNFA0YVdyUTVxMnF6
+RHBzVk1iTXhFVWh2MUg2Pg0KDQpUdXRvcmlhbHMgIA0KPGh0dHBzOi8vYy5nbGUvQU5pYW81b2FG
+SjBMQU1xSjFLWkltVU40blVwWFhlYng4WVBTLXMtTkVUVl9vaWN1U3FhNDJEeENSb2lMTGpkZWdx
+NDN3ckZHM3RFTzVkTTBaMi1NdzE3blNQYzBOZzZZNmdvOVRYWWNxcXpDbjJUUWQ4N0FyMXVQb2p0
+ZEpTNWVjVzF1T0hPX2lReHg5cU5VY1dsM0x0LU0yR1VHaDhEcFUxYVBGZGxhbUxVc3Z0NXhucUpT
+blZvMlZ2ZHFWWVcxUVRRM09NRHZhUl91emxrODRCYXdDbXNHZE9oc21CTWFUY2xIUmNmVnRqbHMw
+N0E4enRobU8xb05ScTh2dngyNzNFdFJlMHNRRzI0TGt3YXJURGtTdTdWUHAzd2g+DQoNCkdvb2ds
+ZSBDbG91ZA0KDQpHb29nbGUgTExDIDE2MDAgQW1waGl0aGVhdHJlIFBhcmt3YXksIE1vdW50YWlu
+IFZpZXcsIENBIDk0MDQzDQoNCllvdSBoYXZlIHJlY2VpdmVkIHRoaXMgbWFuZGF0b3J5IHNlcnZp
+Y2UgYW5ub3VuY2VtZW50IHRvIHVwZGF0ZSB5b3UgYWJvdXQgIA0KaW1wb3J0YW50IGNoYW5nZXMg
+dG8gR29vZ2xlIENsb3VkIG9yIHlvdXIgYWNjb3VudC4NCg0KDQpHb29nbGUgQ2xvdWQgQmxvZyAg
+DQo8aHR0cHM6Ly9jLmdsZS9BTmlhbzVvWU1DVG80clMzcVdMRE9rMVFmUDdaT2cwZGl3NWJmVEpJ
+WFVQQTZEOVdEX19YVmxfOUxWSVVoaFNtUUFMUXpMakt5bl9jRmJVelhHaHlLSk9NdXRzekVlVTZs
+aFNmVnNvN1F5bFo4ZVZmNlJhNHk0cXJYblh0T1ZHVDYtSWxTY2FVN0VDbUdKelBkVE05cEVXWDFV
+Y290YW1SSW15LTlCRm5ydUtkZ1JtS3VMYlNQZmFHSmkzb1hkWEtNUDNNMFNSU1NIbjB4dFdqU1l6
+cXVMSU90SVVmbmpjY1lXLURDd2hTLUFCMDJwZE45OWRVbEs3VzhubFQxSHNqRVVBYVN3RDM+DQoN
+CkdpdEh1YiAgDQo8aHR0cHM6Ly9jLmdsZS9BTmlhbzVvSEl1RVVVaUpwSFpodzJKZ2R4VU9mZUw0
+VG5rWmZ0cXhBMWh5bXZWMUZfWWlZbzRoaTlOZW1ZZnE2YzZjS0tfTVBvUi1aSk9JeEF1NzVyVFg2
+T0Q5WWZoYUx1enlqZzF2aGttWXlqVnNTbmFxakk5SklDb25YSkgyTnBlQ2FLcmJjRndBZTVDTDlj
+Zz4NCg0KTGlua2VkSW4gIA0KPGh0dHBzOi8vYy5nbGUvQU5pYW81cVpNZ25seklwSG5vbWpHTTNN
+UTdwd3BfTk1rX2VHdUF6WGxKQTU4QU9iaGdkeEhfdFlYYTFfalFLUHZuekI1TklGMkx6NThXenRH
+R0tPYTBvRG1QZkplODV3MmpwdWhkUS15S0VFMUJTVzR6YlAyZnBiQWxGMDVFcFE1TGwyWm9ZMUNX
+U08yVFB1eGllbWhjTXlEQ2dHVi1nRz4NCg0KVHdpdHRlciAgDQo8aHR0cHM6Ly9jLmdsZS9BTmlh
+bzVwM1NEV2NCWXFWN3FDd2Mzb3NJZngyNkFSS0UwQ3duQ3JxbzVqeWlQdC1KMVhtcGpvSkpUVkhF
+REk4b3NDQnlMMHQyU3BFOFZXcldaa2g1d3lpWFpHNzJ6bmd6eGgzREV2NzRuQXJOZDdKYTkxMC1H
+dzZhT3h1MmxCbElBZ1hRaDBQYnc+DQoNCkZhY2Vib29rICANCjxodHRwczovL2MuZ2xlL0FOaWFv
+NXBpaE9EUXhNNlJnVWhlbXduek82S1R3bl9La1Vsc3dValAtUVRtWjlxWWNjZThLZ1VMMGNFMjlL
+UXBwN252d1dLeGhpcnZ4VUVEaWR2aVozYjdqeGoyYTFMRmlNdjE2LVVkYy04aFJ6ZXo3WDVDNFVY
+RDM1bl9jQUZuUlZhYXk1Z0t5YzlGQXF4V3BqWT4NCg0KDQoNCg0K
+--00000000000014488d0637295683
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=20
+
+
+
+ =20
+ =20
+ =20
+ =20
+
+
+=20
+  =20
+=20
+
+
+
+
+
+
+  =20
+
+ =20
+
+ =20
+  =20
+
+
+
+
+
+
+
+=20
+
+
+
+
+
+
+
+
+
+
+
+ =20
+  =20
+=20
+<!DOCTYPE html>
+<html dir=3D"" , lang=3Den>
+
+<head>
+    <meta http-equiv=3DContent-Type content=3D"text/html; charset=3DUTF-8">
+    <meta name=3Dviewport content=3Dwidth=3Ddevice-width,initial-scale=3D1.=
+0,user-scalable=3Dyes>
+    <title>Account confirmation: Your Google Cloud free trial</title>
+  <style>
+   =20
+    .appleLinks a {color:#3C4043;text-decoration:none;}
+   =20
+@media screen and (max-width:737px) {
+  .flexible {
+   =20
+    max-width: 600px !important;
+  }
+
+  .body {
+    padding-left: 10px !important;
+    padding-right: 10px !important
+  }
+  .webkit { width: 100% !important;
+  }
+=20
+  .logo_holder_container {
+    padding: 32px 22px 29px 29px !important;
+  }
+ =20
+  .logo_holder_td {
+    padding-left: 25px !important;
+  }
+
+  .logo_right_holder_td {
+    padding-right: 25px !important;
+  }
+
+ =20
+}
+  @media screen and (max-width:414px) {
+   .flexible {
+    width: 100% !important;
+    max-width: 600px !important;
+  }
+  .body {
+    padding-left: 10px !important;
+    padding-right: 10px !important
+  }
+     .pad-mb{
+       padding: 26px 21px 14px 15px !important;
+     }
+     .contents {
+		display: inline-block !important;
+		width: 100% !important;
+        padding-bottom: 18px;
+  }
+
+    .logo_holder_container {
+    padding: 28px 11px 29px 11px !important;
+  }
+
+    .bigger_wrapper_body {
+      padding-left:25px !important;
+      padding-right:25px !important;
+    }
+    .main_heading {
+      padding-right:0px !important;
+    }
+    .main_heading_2 {
+         padding-left:25px !important;
+      padding-right:25px !important;
+    }
+ .sub_heading_trigger_em1 {
+      padding-right:0px !important;
+    }
+    .header_image_td {
+     width: 100% !important;
+    }
+    .desk_header_image {
+      display: none !important;
+    }
+    .mob_header_image {
+    display: block !important;
+    }
+    .headline {
+		font-size: 24px !important;
+		line-height: 32px !important;
+=20
+    }
+    .sub_head{
+     padding-right:25px !important;
+=20
+    }
+    .grey_sec {
+      padding-left:25px !important;
+      padding-right:0px !important;
+         padding-right:25px !important;
+    }
+ .grey_td {
+      padding-left:25px !important;
+      padding-right:25px !important;
+    }
+ .grey_td_1 {
+      padding-left:25px !important;
+
+    }
+    #btn_outer_cover {
+      padding-right:25px !important;
+    }
+    .five-column {
+    padding-bottom:5px !important;
+      padding-left:0px !important;
+  }
+    .footer_wrapper_td {
+      padding-left:25px !important;
+      padding-right:25px !important;
+    }
+    .social_icons_container {
+      padding-left:10px !important;
+      padding-right:25px !important;
+    }
+    .bottom_link_footer_td {
+     =20
+    }
+    .bordertd {
+      padding-right:25px !important;
+    }
+    .new_mod_td {
+      display: block !important;
+      width: 100% !important;
+    }
+    .pad_top {
+      padding-top:10px !important;
+    }
+    #ft3
+    {
+      padding-right:6px !important;
+    }
+    #ft4
+    {
+      padding-right:7px !important;
+    }
+      .ja_only{
+    display: none !important;
+  }
+}
+@media screen and (min-width: 812px) and (max-width: 812px),
+screen and (min-width: 736px) and (max-width: 736px),
+screen and (min-width: 667px) and (max-width: 667px),
+screen and (min-width: 568px) and (max-width: 568px),
+screen and (min-width: 414px) and (max-width: 414px),
+screen and (min-width: 375px) and (max-width: 375px),
+screen and (min-width: 320px) and (max-width: 320px) {
+  .body {
+    min-width: 100vw !important;
+  }
+}
+  </style>
+</head>
+
+<body class=3Dbody bgcolor=3D#f8f9fa style=3D"-ms-text-size-adjust:100%; -w=
+ebkit-text-size-adjust:100%; border:0; background-color: #f8f9fa; font-fami=
+ly:Google Sans, Roboto, Arial; font-weight:normal; margin:0; padding:0; wid=
+th:100%; box-sizing: border-box;" width=3D100%>
+         <div class=3Dwebkit bgcolor=3D#f8f9fa style=3D"margin:0 auto; padd=
+ing:0; background-color: #f8f9fa;">
+           <div style=3D"height:0px; font-size:0px; max-height:0px; min-hei=
+ght: 0px; line-height:0px; width: 100%; color: #fff; display:none;">Get sta=
+rted fast =E2=80=93 and see what=E2=80=99s always free on Google Cloud.</di=
+v>
+      <section>
+        <!--[if mso]>
+	<table role=3D"presentation" class=3D"bigger_wrapper flexible" width=3D"60=
+0" align=3D"center" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=
+=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:col=
+lapse; font-family:Google Sans, Roboto, Arial; font-weight:normal; margin:0=
+ auto; width:600px; max-width:600px; mso-table-lspace:0; mso-table-rspace:0=
+;">
+<![endif]-->
+
+                                <!--[if !mso]> <!---->
+      <table role=3Dpresentation class=3D"bigger_wrapper flexible" width=3D=
+600 cellspacing=3D0 cellpadding=3D0 border=3D0 style=3D"-premailer-cellpadd=
+ing:0; -premailer-cellspacing:0; border-collapse:collapse; font-family:Goog=
+le Sans, Roboto, Arial; font-weight:normal; margin:0 auto; width:600px; max=
+-width:600px; mso-table-lspace:0; mso-table-rspace:0;">
+        <!-- <![endif]-->
+
+=20
+  <tr>
+            <td class=3D"bigger_wrapper_header flexible" style=3D"border-co=
+llapse:collapse; margin:0; max-width:600px;">
+
+              <table role=3Dpresentation bgcolor=3D#f8f9fa class=3Douter st=
+yle=3D"background-color:#f8f9fa; -premailer-cellpadding:0; -premailer-cells=
+pacing:0; border-collapse:collapse; font-family:Roboto, arial; font-weight:=
+normal; margin:0 auto; max-width:600px; mso-table-lspace:0; mso-table-rspac=
+e:0; width:100%" cellpadding=3D0 cellspacing=3D0 width=3D100%>
+            <tr>
+              <td id=3Dlogo_above_space class=3D"two-column logo_holder_con=
+tainer" style=3D"border-collapse:collapse; font-size:0; padding:24px 22px 1=
+4px 29px;">
+                <!--[if (gte mso 9)|(IE)]>
+                <table role=3D"presentation" width=3D"100%">
+                <tr>
+                <td width=3D"50%" valign=3D"top">
+                <![endif]-->
+                <div class=3Dcolumn style=3D"display:inline-block; float:le=
+ft; max-width:337px; vertical-align:top; width:100%" valign=3Dtop width=3D1=
+00%>
+                      <table role=3Dpresentation width=3D100% style=3D"-pre=
+mailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; f=
+ont-family:Roboto, arial; font-weight:normal; mso-table-lspace:0; mso-table=
+-rspace:0" cellpadding=3D0 cellspacing=3D0>
+                              <tr>
+                                  <td class=3Dinner style=3D"border-collaps=
+e:collapse; font-size:15px; padding:5px 0 0 0">
+                                      <table role=3Dpresentation width=3D10=
+0% class=3D"logo_holder flexible" cellspacing=3D0 cellpadding=3D0 border=3D=
+0 style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border-colla=
+pse:collapse; font-family:roboto, arial; font-weight:500; mso-table-lspace:=
+0; mso-table-rspace:0; width:100%">
+                                          <tr>=20
+                                            <td style=3D"border-collapse:co=
+llapse; text-align:left;">
+         <a href=3Dhttps://c.gle/ANiao5opUXs2vScpCtdbD9CV5kDytYAaYwu84Ltfwl=
+hmsGQIwnLa6ikK_pbK7uV9ALot_HYLXcbOw-fZcFmqeTQ8PnJB3658sbAwoMtacGjkcPSPtnYyI=
+c9ldqLVVUQ2SXib9YHskFKVz3ed9kXtTTCGz-JAA-WLeoZ4LCasfjWx1uI-QszyYQJJAqUJ10on=
+dXPsbuCB4qMl3j0prFBZqOHLl2j03cJGELMZ6ZRtzJJc9WYTQVb5OocAH4gjRVC71ARTshTq6S4=
+F target=3D_blank><img class=3Dbanner_logo src=3Dhttps://services.google.co=
+m/fh/files/emails/logo-new-gcp.png width=3D202 alt=3D"Google Cloud" style=
+=3D"-ms-interpolation-mode:bicubic; height:auto; outline:none; text-decorat=
+ion:none;width:202px;padding-top:8px; padding-bottom: 8px;" height=3Dauto><=
+/a>
+                                            </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                      </table>
+               </div>
+                <!--[if (gte mso 9)|(IE)]>
+                </td><td width=3D"50%" valign=3D"top">
+                <![endif]-->
+               <div class=3Dcolumn id=3Dcolumndiv style=3D"display:inline-b=
+lock; float:right; max-width:209px; vertical-align:top; width:100%" valign=
+=3Dtop width=3D100%>
+              <table role=3Dpresentation width=3D100% style=3D"-premailer-c=
+ellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; font-fami=
+ly:Roboto, arial; font-weight:normal; mso-table-lspace:0; mso-table-rspace:=
+0" cellpadding=3D0 cellspacing=3D0>
+                  <tr>
+                   <!--[if gte mso 9]>
+             <td class=3D"inner1" style=3D"border-collapse:collapse; font-s=
+ize:15px; padding:7px 0 0 0">
+
+<![endif]-->
+
+<!--[if !mso]><!-->
+             <td class=3Dinner1 style=3D"border-collapse:collapse; font-siz=
+e:15px; padding:11px 0 0 0">
+<!--<![endif]-->
+
+
+                         <table role=3Dpresentation width=3D100% class=3D"l=
+ogo_right_holder " cellspacing=3D0 cellpadding=3D0 border=3D0 style=3D"-pre=
+mailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; f=
+ont-family:roboto, arial; font-weight:500; mso-table-lspace:0; mso-table-rs=
+pace:0; width:100%">
+                             <tr>
+                                <td class=3Dlogo_right_holder_td style=3D"b=
+order-collapse:collapse; padding-right:0; padding-top:0">
+                                   <table role=3Dpresentation class=3D"logo=
+_right_holder_inner flexible" cellspacing=3D0 cellpadding=3D0 border=3D0 wi=
+dth=3D100% style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; bor=
+der-collapse:collapse; font-family:roboto, arial; font-weight:500; mso-tabl=
+e-lspace:0; mso-table-rspace:0; width:100%">
+                                        <tr>
+                                            <td class=3Dlogo_right_holder_i=
+nner_td width=3D100% style=3D"border-collapse:collapse; color:#1967D2; font=
+-family:Google Sans, Roboto, arial; font-size:14px; font-weight:500; line-h=
+eight:20px; padding-top:6px;text-align:right" align=3Dright>
+                                            <a target=3D_blank href=3Dhttps=
+://c.gle/ANiao5pt8YWonHZI3Fz2hP2eRH5dWc1ikbmgtcX7yg830AItNA2OhGXaRcUZu6ruCJ=
+ZoocPp1qvk8lgEn5xxwtT9Yr-aaUaaeOfCLO79BhjIUxwu0pbDFipmiaNIqE1OwQGIt6tNotXX-=
+Pi6UYzz6prrbD5W_V4vKBRAeC6EBUtC4q7KuM_C0O3huKmTg0iAQHxehpMXJCkjZp-e2viW445k=
+rfrPDMG0tknBaL2IFL1BcGjl0I9g9GrJ1jda1j3Lkx5QMUwK4K-594EvQHK8468cP88 style=
+=3D"color:#1967D2; font-family:Google Sans, Roboto, arial; font-size:14px; =
+font-weight:500; line-height:20px; text-decoration:none;letter-spacing:0.25=
+px;" target=3D_blank class=3Dconsole_text>Go to my console</a>
+                                            </td>
+                                          <td style=3D"padding-left: 10px; =
+padding-top: 4px;">
+                                            <table role=3Dpresentation cell=
+spacing=3D0 cellpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -=
+premailer-cellspacing:0; border-collapse:collapse; mso-table-lspace:0; mso-=
+table-rspace:0;">
+                                                  <tr>
+                                                    <!--[if gte mso 9]>
+													<td style=3D"padding-top:4px;">
+													<![endif]-->
+                                                    <!--[if !mso]><!-->
+                                                    <td style=3Dpadding-top=
+:0px;>
+													<!--<![endif]-->
+                                                        <a target=3D_blank =
+href=3Dhttps://c.gle/ANiao5pt8YWonHZI3Fz2hP2eRH5dWc1ikbmgtcX7yg830AItNA2OhG=
+XaRcUZu6ruCJZoocPp1qvk8lgEn5xxwtT9Yr-aaUaaeOfCLO79BhjIUxwu0pbDFipmiaNIqE1Ow=
+QGIt6tNotXX-Pi6UYzz6prrbD5W_V4vKBRAeC6EBUtC4q7KuM_C0O3huKmTg0iAQHxehpMXJCkj=
+Zp-e2viW445krfrPDMG0tknBaL2IFL1BcGjl0I9g9GrJ1jda1j3Lkx5QMUwK4K-594EvQHK8468=
+cP88 style=3D"color:#1A73E8; font-family:Google Sans, Roboto, arial; font-s=
+ize:14px; font-weight:500; line-height:20px; text-decoration:none;letter-sp=
+acing:0.75px;" target=3D_blank class=3Dconsole_text aria-hidden=3Dtrue><img=
+ src=3Dhttp://services.google.com/fh/files/emails/gcp_right_arrow.png alt=
+=3D"" width=3D16 border=3D0 style=3D"line-height:20px; width:16px; vertical=
+-align:middle;border:none;" /></a>
+                                                    </td>
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                   </td>
+                                 </tr>
+                               </table>
+                        </td>
+                      </tr>
+                    </table>
+                </div>
+                <!--[if (gte mso 9)|(IE)]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+            </td>
+         </tr>
+       </table>
+            </td>
+        </tr>
+          =20
+<tr>
+  <td class=3D"bigger_wrapper_header flexible" style=3D"border-collapse:col=
+lapse; margin:0; max-width:600px;">
+  <table role=3Dpresentation bgcolor=3D#ffffff border=3D0 cellpadding=3D0 c=
+ellspacing=3D0 width=3D100% style=3D"border-radius: 3px; background-color:#=
+ffffff; max-width:600px;">
+  <tr>
+      <td class=3D"bigger_wrapper_body flexible" width=3D100% style=3D"bord=
+er-radius: 3px; border-collapse:collapse; margin:0; padding-bottom:0px; pad=
+ding-top:0px;font-family:Google Sans, Roboto, Arial;background-color:#fffff=
+f; padding-left:50px;padding-right:50px;">
+      <table role=3Dpresentation width=3D500 class=3Dflexible cellpadding=
+=3D0 cellspacing=3D0 border=3D0 style=3D"width:500px; max-width:500px;">
+<tr>
+<td class=3D"flexible main_heading headline" style=3D"border-collapse:colla=
+pse; color:#3C4043; font-family:Google Sans,Roboto,Arial; font-size:32px; f=
+ont-weight:500; line-height:40px; text-align:left; padding-bottom: 0px; pad=
+ding-top: 40px; padding-left:0px; padding-right:46px; word-break:normal;">
+Welcome to <span style=3D" white-space: nowrap;">Google Cloud.</span>
+</td>
+</tr>
+<tr>
+<td class=3D"flexible sub_head" style=3D"border-collapse:collapse; color:#3=
+C4043; font-family:Google Sans, Roboto, Arial; font-size:16px; font-weight:=
+normal; line-height:26px; text-align:left; padding-bottom: 0px; padding-top=
+: 11px; padding-left:0px; padding-right:0px; word-break:normal;">
+Learn the fundamentals with <span style=3Dwhite-space:nowrap;><a href=3Dhtt=
+ps://c.gle/ANiao5qYs-d2suKYkoKdzBJqfkQqqeGpyLECTuFX561AWAWfMznq6Ve7-KQ-8VpM=
+OnBxnoQr_kvL1Huu73w7_3TJ_nfEgX6TK2KPRrxZi0UmXtIIM7nLWPGF7iuPXDZsPJ2AQj2D6Nq=
+Ez-7lTOFqWaRTd_6-zeEDenoFgZHaOYYYbcPPjvgwvfZP49X3ku60eghZ85wjimrgIGdHCKqkDR=
+uz6JSSI0I10XyaBvH4nSd5E5E1I_nnnyYW1vVUvcz6LbG77cmvpQGpMsa4tcC5iY5EnsNrWlR3v=
+bOt7GeLbsNSwjO2HEe6SkoF8YXnwCD3XUNBgXlBucTVtF1Q4lJ0NoJaR2aN0bjISqB50QHLWtrn=
+QuRgDVzfiA target=3D_blank style=3D"color:#1A73E8; text-decoration:underlin=
+e; ">this tutorial</a> =E2=80=93</span> and see what else you can do for fr=
+ee on <span style=3Dwhite-space:nowrap;>Google Cloud</span> with our Always=
+ Free tier.
+</td>
+</tr>
+      <tr>
+          <td id=3Douter_cover align=3Dleft style=3D"border-collapse:collap=
+se; font-family:Roboto, arial; font-weight:normal; padding-top:32px;padding=
+-bottom:0px;">
+    <table role=3Dpresentation class=3Dbluecta style=3D"margin: auto; -moz-=
+border-radius:3px; -premailer-cellpadding:0; -premailer-cellspacing:0; -web=
+kit-border-radius:3px; border-collapse:collapse; border-radius:3px; color:#=
+1a73e8; font-family:Google Sans,Arial; font-weight:500; mso-table-lspace:0;=
+ mso-table-rspace:0;" height=3D40 align=3Dleft bgcolor=3D#1a73e8 cellpaddin=
+g=3D0 cellspacing=3D0> =20
+    <tr>
+      <!--[if gte mso 9]>
+	   <td style=3D"padding: 10px 7px 10px 8px; border-collapse:collapse">
+		<a  style=3D"-khtml-border-radius:2px; -moz-border-radius:3px; -moz-borde=
+r-radius-bottomleft:0; -moz-border-radius-bottomright:3px; -moz-border-radi=
+us-topleft:0; -moz-border-radius-topright:3px; -ms-border-radius:2px; -o-bo=
+rder-radius:2px; -webkit-border-bottom-left-radius:3px; -webkit-border-bott=
+om-right-radius:3px; -webkit-border-radius:3px; -webkit-border-top-left-rad=
+ius:0; -webkit-border-top-right-radius:3px; background-color:#1a73e8; borde=
+r-bottom-left-radius:3px; border-bottom-right-radius:3px; border-color:#1a7=
+3e8; border-radius:3px; border-style:solid; border-top-left-radius:3px; bor=
+der-top-right-radius:3px; color:#ffffff; display:inline-block; font-family:=
+Google Sans, Arial; font-size:14px; font-weight:500; line-height:24px; marg=
+in:0; mso-hide:all; text-decoration:none" target=3D"_blank" target=3D'_blan=
+k' href=3D"https://c.gle/ANiao5qKI70fLjQLSm7cLo1qA3NqtG2heeJevJM3jNgeEt-EJU=
+JKTVfrJYzVc8D7IuHfrTyPmeT4RiUEtt9aaqdqrc-y5_tquC1o3hvftnWHeqvUU6T8zmAWYnrU9=
+fRskC0WSjkH8cjqXV0_MI98s4s5kcjsWn42ypnriymcLIJE6i7sp6Yd1kl2WuD4Jxeck9DG4PxW=
+b8scPWVj_ymGGZMRPKB6r1jU-_lVDoD9fm52rBY4dKVDWasiEVKLD-Z4EpzVdLAtvPG6boE2gln=
+W3piEpVz3JcImNhqoKalSuFsdC5-MHXd2" bgcolor=3D"#1a73e8" >
+         <span  style=3D"-webkit-text-size-adjust: none; display: block;pad=
+ding-left:7px;padding-right:9px;">Go to my console</span>
+         </a>
+     </td>
+<![endif]-->
+					<!--[if !mso]><!-->
+      <td style=3Dborder-collapse:collapse>
+		<a style=3D"-khtml-border-radius:2px; -moz-border-radius:3px; -moz-border=
+-radius-bottomleft:0; -moz-border-radius-bottomright:3px; -moz-border-radiu=
+s-topleft:0; -moz-border-radius-topright:3px; -ms-border-radius:2px; -o-bor=
+der-radius:2px; -webkit-border-bottom-left-radius:3px; -webkit-border-botto=
+m-right-radius:3px; -webkit-border-radius:3px; -webkit-border-top-left-radi=
+us:0; -webkit-border-top-right-radius:3px; background-color:#1a73e8; border=
+-bottom-left-radius:3px; border-bottom-right-radius:3px; border-color:#1a73=
+e8; border-radius:3px; border-style:solid; border-top-left-radius:3px; bord=
+er-top-right-radius:3px; color:#ffffff; display:inline-block; font-family:G=
+oogle Sans, Arial; font-size:14px; font-weight:500; line-height:24px; margi=
+n:0; mso-hide:all; text-decoration:none" target=3D_blank target=3D_blank hr=
+ef=3Dhttps://c.gle/ANiao5qKI70fLjQLSm7cLo1qA3NqtG2heeJevJM3jNgeEt-EJUJKTVfr=
+JYzVc8D7IuHfrTyPmeT4RiUEtt9aaqdqrc-y5_tquC1o3hvftnWHeqvUU6T8zmAWYnrU9fRskC0=
+WSjkH8cjqXV0_MI98s4s5kcjsWn42ypnriymcLIJE6i7sp6Yd1kl2WuD4Jxeck9DG4PxWb8scPW=
+Vj_ymGGZMRPKB6r1jU-_lVDoD9fm52rBY4dKVDWasiEVKLD-Z4EpzVdLAtvPG6boE2glnW3piEp=
+Vz3JcImNhqoKalSuFsdC5-MHXd2 bgcolor=3D#1a73e8>
+         <span style=3D"-webkit-text-size-adjust: none; display: block;padd=
+ing-left:16px;padding-right:15px; padding-top:9px; padding-bottom:9px;">Go =
+to my console</span>
+         </a>
+     </td>
+      <!--<![endif]-->
+   </tr>
+</table>
+   =20
+           </td>
+        </tr>
+        <tr>
+          <td class=3Dheader_image_td width=3D500 style=3D"width: 500px; pa=
+dding-top:31px; padding-bottom:0px; ">
+            <img class=3Ddesk_header_image alt=3D"" src=3Dhttp://services.g=
+oogle.com/fh/files/emails/izzuzz_mainimage_2x.png border=3D0 height=3D200 w=
+idth=3D500 style=3D"height: 200px; width: 500px;" />
+            <!--[if !mso]><!-->
+            <img class=3Dmob_header_image alt=3D"" src=3Dhttp://services.go=
+ogle.com/fh/files/emails/izzuzz_mainimage_2x.png border=3D0 height=3Dauto w=
+idth=3D100% style=3D"display: none; width: 100%; height: auto;" />
+            <!--<![endif]-->
+          </td>
+        </tr>
+<tr>
+<td class=3D"flexible main_heading" style=3D"border-collapse:collapse; colo=
+r:#3C4043; font-family:Roboto, Arial; font-size:14px; font-weight:normal; l=
+ine-height:24px; text-align:left; padding-bottom: 0px; padding-top: 23px; p=
+adding-left:0px; padding-right:0px; word-break:normal;">
+Beginning today, you have $300 USD in credit which you can use to:
+</td>
+</tr>
+<tr>
+          <td align=3Dleft class=3Dlrpd style=3D"text-align:left; padding-l=
+eft:0px; padding-right:0px; padding-top:15px; padding-bottom:0px;">
+            <table role=3Dpresentation width=3D500 cellspacing=3D0 cellpadd=
+ing=3D0 border=3D0 class=3Dflexible style=3D"width:500px; -premailer-cellpa=
+dding:0; -premailer-cellspacing:0; border-collapse:collapse; font-family:Ro=
+boto,Arial; font-weight:normal; mso-table-lspace:0; mso-table-rspace:0;">
+              <tr>
+           =20
+            <!--[if gte mso 9]>
+						<td width=3D"24" class=3D"img1" style=3D"font-size:14px; line-height:=
+28px; vertical-align:top; padding-top: 0px; text-align:left" valign=3D"top"=
+>
+                   <img src=3D"http://services.google.com/fh/files/emails/i=
+c_data_usage_4px.png" alt=3D""  style=3D"-ms-interpolation-mode:bicubic; ou=
+tline:none; text-decoration:none; height: px; width:24px;vertical-align:top=
+;" width=3D"24"  height=3D"">
+				</td>
+					<![endif]-->
+             =20
+					<!--[if !mso]><!-->
+                <td width=3D24 class=3Dimg1 style=3D"font-size:14px; line-h=
+eight:24px; vertical-align:top; padding-top: 1px; text-align:left" valign=
+=3Dtop>
+                   <img src=3Dhttp://services.google.com/fh/files/emails/ic=
+_data_usage_4px.png alt=3D"" style=3D"-ms-interpolation-mode:bicubic; outli=
+ne:none; text-decoration:none; height: px; width:24px; vertical-align:top;"=
+ width=3D24 height=3D"">
+				</td>
+                   <!--<![endif]-->
+                <td class=3Dimgtd style=3D"font-size:14px; line-height:24px=
+;padding-top:0px;padding-left:24px;padding-right:0px; vertical-align:top;">
+                  <table role=3Dpresentation class=3Dflexible cellspacing=
+=3D0 cellpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -premail=
+er-cellspacing:0; border-collapse:collapse; font-family:Roboto,Arial; font-=
+weight:normal; mso-table-lspace:0; mso-table-rspace:0">
+                    <tr>
+                      <td class=3Dinner_imgtd style=3D"color:#3C4043; font-=
+family:Roboto, arial; font-size:14px; line-height:24px; font-weight:normal;=
+ padding-bottom:0px; padding-top:0px;word-break:normal">Evaluate <span styl=
+e=3Dwhite-space:nowrap;>Google Cloud</span> <strong><span style=3Dwhite-spa=
+ce:nowrap;>risk-</span>free*</strong></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<tr>
+          <td align=3Dleft class=3Dlrpd style=3D"text-align:left; padding-l=
+eft:0px; padding-right:0px; padding-top:15px; padding-bottom:0px;">
+            <table role=3Dpresentation width=3D500 cellspacing=3D0 cellpadd=
+ing=3D0 border=3D0 class=3Dflexible style=3D"width:500px; -premailer-cellpa=
+dding:0; -premailer-cellspacing:0; border-collapse:collapse; font-family:Ro=
+boto,Arial; font-weight:normal; mso-table-lspace:0; mso-table-rspace:0;">
+              <tr>
+           =20
+            <!--[if gte mso 9]>
+						<td width=3D"24" class=3D"img1" style=3D"font-size:14px; line-height:=
+28px; vertical-align:top; padding-top: 0px; text-align:left" valign=3D"top"=
+>
+                   <img src=3D"http://services.google.com/fh/files/emails/i=
+c_explore_24px.png" alt=3D""  style=3D"-ms-interpolation-mode:bicubic; outl=
+ine:none; text-decoration:none; height: px; width:24px;vertical-align:top;"=
+ width=3D"24"  height=3D"">
+				</td>
+					<![endif]-->
+             =20
+					<!--[if !mso]><!-->
+                <td width=3D24 class=3Dimg1 style=3D"font-size:14px; line-h=
+eight:24px; vertical-align:top; padding-top: 1px; text-align:left" valign=
+=3Dtop>
+                   <img src=3Dhttp://services.google.com/fh/files/emails/ic=
+_explore_24px.png alt=3D"" style=3D"-ms-interpolation-mode:bicubic; outline=
+:none; text-decoration:none; height: px; width:24px; vertical-align:top;" w=
+idth=3D24 height=3D"">
+				</td>
+                   <!--<![endif]-->
+                <td class=3Dimgtd style=3D"font-size:14px; line-height:24px=
+;padding-top:0px;padding-left:24px;padding-right:0px; vertical-align:top;">
+                  <table role=3Dpresentation class=3Dflexible cellspacing=
+=3D0 cellpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -premail=
+er-cellspacing:0; border-collapse:collapse; font-family:Roboto,Arial; font-=
+weight:normal; mso-table-lspace:0; mso-table-rspace:0">
+                    <tr>
+                      <td class=3Dinner_imgtd style=3D"color:#3C4043; font-=
+family:Roboto, arial; font-size:14px; line-height:24px; font-weight:normal;=
+ padding-bottom:0px; padding-top:0px;word-break:normal">Explore a wide rang=
+e of <span style=3Dwhite-space:nowrap;>Google Cloud</span> products and <sp=
+an style=3Dwhite-space:nowrap;>services =E2=80=93</span> from <a href=3Dhtt=
+ps://c.gle/ANiao5qMuyTEHEkIyusrhU0aDP3zxqDAywuBmJCr2p9gwXARDkPELj9iDzLjK7x3=
+lkrCPbge14n7U-tHAjbD58jI5LU1MrMn8fJcSHzju498djbjaYJm_I5BMZ7glIBgCZZVfPVwpj4=
+ib1e1Y4iGtFHbo_vxfQvOa3ajgYo2Cmgh6g target=3D_blank style=3D"color:#1A73E8;=
+ text-decoration:underline; ">Compute Engine</a> and <a href=3Dhttps://c.gl=
+e/ANiao5qnEo1P6Jgp6WntWRqmDq0Dqcsbh7TK1ag80SmfJN7Hpq1simaUI7eZINtXAigavr1W-=
+1UXBBX8WYxrl7edCgBmHeZ3XoM1dABRdH-y7vEvvF5qB0lTydL28GLpr0lQSBB74doXhJlaToae=
+udP1u6k target=3D_blank style=3D"color:#1A73E8; text-decoration:underline; =
+">BigQuery</a> to <a href=3Dhttps://c.gle/ANiao5oBEOUQqrIOCaOTIuxGsGxOrFbt4=
+VLQospJBHRN-di7_9a-27o3XXCtew3eVD4ltozV19HV4EdRfVJ2AiFKWO6v3MZoR54OnELRBqfg=
+x9E0tJAbt-sp5xw9S-0TptcCAvg0VwrexBNYTaCsBvcOwc48lXWntMnSdYsz7x4Y49IP9oqmvOI=
+ target=3D_blank style=3D"color:#1A73E8; text-decoration:underline; "><span=
+ style=3Dwhite-space:nowrap;>industry-</span>leading AI</a>.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<tr>
+          <td align=3Dleft class=3Dlrpd style=3D"text-align:left; padding-l=
+eft:0px; padding-right:0px; padding-top:15px; padding-bottom:0px;">
+            <table role=3Dpresentation width=3D500 cellspacing=3D0 cellpadd=
+ing=3D0 border=3D0 class=3Dflexible style=3D"width:500px; -premailer-cellpa=
+dding:0; -premailer-cellspacing:0; border-collapse:collapse; font-family:Ro=
+boto,Arial; font-weight:normal; mso-table-lspace:0; mso-table-rspace:0;">
+              <tr>
+           =20
+            <!--[if gte mso 9]>
+						<td width=3D"24" class=3D"img1" style=3D"font-size:14px; line-height:=
+28px; vertical-align:top; padding-top: 0px; text-align:left" valign=3D"top"=
+>
+                   <img src=3D"http://services.google.com/fh/files/emails/i=
+c_credit_usage_24px.png" alt=3D""  style=3D"-ms-interpolation-mode:bicubic;=
+ outline:none; text-decoration:none; height: px; width:24px;vertical-align:=
+top;" width=3D"24"  height=3D"">
+				</td>
+					<![endif]-->
+             =20
+					<!--[if !mso]><!-->
+                <td width=3D24 class=3Dimg1 style=3D"font-size:14px; line-h=
+eight:24px; vertical-align:top; padding-top: 1px; text-align:left" valign=
+=3Dtop>
+                   <img src=3Dhttp://services.google.com/fh/files/emails/ic=
+_credit_usage_24px.png alt=3D"" style=3D"-ms-interpolation-mode:bicubic; ou=
+tline:none; text-decoration:none; height: px; width:24px; vertical-align:to=
+p;" width=3D24 height=3D"">
+				</td>
+                   <!--<![endif]-->
+                <td class=3Dimgtd style=3D"font-size:14px; line-height:24px=
+;padding-top:0px;padding-left:24px;padding-right:0px; vertical-align:top;">
+                  <table role=3Dpresentation class=3Dflexible cellspacing=
+=3D0 cellpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -premail=
+er-cellspacing:0; border-collapse:collapse; font-family:Roboto,Arial; font-=
+weight:normal; mso-table-lspace:0; mso-table-rspace:0">
+                    <tr>
+                      <td class=3Dinner_imgtd style=3D"color:#3C4043; font-=
+family:Roboto, arial; font-size:14px; line-height:24px; font-weight:normal;=
+ padding-bottom:0px; padding-top:0px;word-break:normal">Easily check your c=
+redit usage by visiting the <a href=3Dhttps://c.gle/ANiao5perq9e5NOjLoyM2Zx=
+l9f2fOAnxyNgH3i8K3HjAqg6uNK4gS_f-BT2QdntoPQq6MUz7e5wmXwYpX0SutGyifwzx15Tqkq=
+2AzvDE97zYVCX9aOCLl3Z5rqZRLmuOF9yK-qvQitGr-JLdz46GvkBSQgwGUrllkAU target=3D=
+_blank style=3D"color:#1A73E8; text-decoration:underline; ">billing section=
+</a> of your <span style=3Dwhite-space:nowrap;>Google Cloud</span> console<=
+/td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+   </table>
+    <tr>
+    <td class=3Dgrey_td_1 style=3Dpadding-left:50px;padding-right:0px>
+      <table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0=
+ style=3Dwidth:100%>
+  <tr>
+<td class=3Dgrey_section style=3Dpadding-top:25px;padding-bottom:14px;backg=
+round-color:#ffffff;>
+
+<table role=3Dpresentation bgcolor=3D#f1f3f4 width=3D100% cellspacing=3D0 c=
+ellpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -premailer-cel=
+lspacing:0; border-collapse:collapse; mso-table-lspace:0; mso-table-rspace:=
+0;background-color:#f1f3f4">
+<tr>
+<td class=3Dleft-right-spacing style=3D"padding-left: 25px; padding-right: =
+25px;">
+<table role=3Dpresentation style=3D"-premailer-cellpadding:0; -premailer-ce=
+llspacing:0; border-collapse:initial; font-family:roboto, arial;  font-weig=
+ht:normal; mso-table-lspace:0; mso-table-rspace:0;" width=3D100% cellpaddin=
+g=3D0 cellspacing=3D0>
+				<tr>
+					<td style=3D"border-collapse:initial; font-size:12px; padding-top:20px=
+; padding-left: 0px; padding-bottom:17px; padding-right: 0px;  ">
+                      <table role=3Dpresentation width=3D100% cellspacing=
+=3D0 cellpadding=3D0 border=3D0 margin=3D0 padding=3D0 style=3D"premailer-c=
+ellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; mso-table=
+-lspace:0; mso-table-rspace:0; text-align:left;">
+						=20
+                        <tr>
+				                    <td style=3D"padding-top:0px; font-family:Google Sa=
+ns,Arial; font-size:14px; line-height:24px; font-weight:500; color:#3C4043;=
+padding-bottom: 0px;">
+                                      See what=E2=80=99s always free.
+				                    </td>
+				                 </tr>
+ <tr>
+				                    <td style=3D"padding-top:0px; font-family:Roboto,Ar=
+ial; font-size:14px; line-height:24px; font-weight:normal; color:#3C4043;pa=
+dding-bottom: 0px; word-break:normal">
+                                      Before diving into your free trial, t=
+ake a moment to explore over 20 always-free products in our <a href=3Dhttps=
+://c.gle/ANiao5onos_zi-2_UFbvU3lNLk3Z9RkA1EX7TsNDDNWxnwgt7zyW12GL3-uw9_kSOk=
+Kn4s6SKnmX8FKjKKN8Gmw3-Xd4k-eoXCl4Yn5SN3GRRg4IUTS57_9jQUE88QIvJ0W-rkTTUdYaC=
+n-S2webw6lGNwk5UPdTae8Yb5NLkNiPGWbziYkzg3mAsOFdiAvR08CqR8E4qWyeid80urFluyXz=
+3NUtjecITYK9PkHPr7DYdHwp4QPv0MQTL5u9Ec_bkGdZqTusbeByu9SnUtr7ylulD8FNtJdE-Jx=
+bDIBk5SyIOSjcDRIBP1jNLQnKCp2fpKY53dc0APGk27i32QRzC9Y style=3D"color:#1967D2=
+; font-family:Roboto, arial;  font-weight:normal; text-decoration:underline=
+;" target=3D_blank>Always Free tier</a>. There=E2=80=99s no charge or credi=
+t cost to use these products up to their specified usage limit.
+				                    </td>
+				                 </tr>
+					=09
+</table>
+
+</td>
+</tr>
+  </table>
+</td>
+</tr>
+  </table>
+      </table>
+      </td>
+    </tr>
+<tr>
+<td class=3D"flexible main_heading_2" style=3D"border-collapse:collapse; co=
+lor:#3C4043; font-family:Roboto, Arial; font-size:14px; font-weight:normal;=
+ line-height:24px; text-align:left; padding-bottom: 0px; padding-top: 9px; =
+padding-left:50px; padding-right:50px; word-break:normal;">
+Get hands-on now with <a href=3Dhttps://c.gle/ANiao5q73avV6N1O0LVMR-zBpsFQF=
+SXSuB22rtu5GYl92EqKW7BxEILmahTIT4b3YZ-kXwvZdLo5La5y6g8V1e57R0eNM1-ahCcCuhxd=
+iTyd6ALdhlAMrCJGjfbDHOba7o29SO3Z5y94aQ2bLjP02UcQNTbFJIMjkOGYO8SgnlmgZAC0vqw=
+qksWX40Bb8dvTKJOPocvkTXLpgvTbPMiOZ-PoWPJMJbwGh143uxp5_38r34YHw11Bw593l0FCi0=
+vEAphl8QVrLju2en4_u1vYGhx5w5tnNyu5Akexv0Nm1Com3uY1ez-gqVV-pX89XpNKkXyZBpsRI=
+ec918vcITIXiGTd6ueXBPR4wpRphNo19Z2l2rczwYsyAghP3KJA6OsjBTlndMI target=3D_bl=
+ank style=3D"color:#1A73E8; text-decoration:underline; ">this quick Cloud c=
+onsole Tour</a>, highlighting how to easily navigate, organize, and manage =
+your projects. To start exploring on your own, just visit your Cloud consol=
+e.
+</td>
+</tr>
+    <tr>
+      <td id=3Douter_cover class=3Dmain_heading_2 align=3Dleft width=3D500 =
+bgcolor=3D#ffffff style=3D"border-collapse:collapse; font-family:Roboto, ar=
+ial; font-weight:normal; padding-top:28px;padding-right:50px; background-co=
+lor:#ffffff;width:500px;padding-bottom:32px;padding-left:50px;">
+    <table role=3Dpresentation class=3Dbluecta style=3D"margin: auto; -moz-=
+border-radius:3px; -premailer-cellpadding:0; -premailer-cellspacing:0; -web=
+kit-border-radius:3px; border-collapse:collapse; border-radius:3px; color:#=
+1a73e8; font-family:Google Sans,Arial; font-weight:500; mso-table-lspace:0;=
+ mso-table-rspace:0;" height=3D40 align=3Dleft bgcolor=3D#1a73e8 cellpaddin=
+g=3D0 cellspacing=3D0> =20
+    <tr>
+      <!--[if gte mso 9]>
+	   <td style=3D"padding: 10px 7px 10px 8px; border-collapse:collapse">
+		<a  style=3D"-khtml-border-radius:2px; -moz-border-radius:3px; -moz-borde=
+r-radius-bottomleft:0; -moz-border-radius-bottomright:3px; -moz-border-radi=
+us-topleft:0; -moz-border-radius-topright:3px; -ms-border-radius:2px; -o-bo=
+rder-radius:2px; -webkit-border-bottom-left-radius:3px; -webkit-border-bott=
+om-right-radius:3px; -webkit-border-radius:3px; -webkit-border-top-left-rad=
+ius:0; -webkit-border-top-right-radius:3px; background-color:#1a73e8; borde=
+r-bottom-left-radius:3px; border-bottom-right-radius:3px; border-color:#1a7=
+3e8; border-radius:3px; border-style:solid; border-top-left-radius:3px; bor=
+der-top-right-radius:3px; color:#ffffff; display:inline-block; font-family:=
+Google Sans, Arial; font-size:14px; font-weight:500; line-height:24px; marg=
+in:0; mso-hide:all; text-decoration:none" target=3D"_blank" target=3D'_blan=
+k' href=3D"https://c.gle/ANiao5pOqvvaE7a8CX9Ej0FnfJun-_MnsFcB5LE_-JdU-whyIX=
+Y-iRSgoEuV4DRbI5Q5YcvRF4mO-DeaDB_PQHr49L__VgAs3At6TWAGp_-OI4wBoNZh2h2s2m7_k=
+lus7Jb_ZfrKagp4IFpdmgSp_rn-Url-_qjtBszoZrUI4pZLV-EbRYXFpV5GtIl-xTKHGfr6y0wL=
+P6W8Qc-6JBTBg3Eg7K9PMrWrnAVQBi64uVDgT55n5KTwJBfLV8EreDW6eYSJbvutflxVmuaAHBq=
+v4WGagwNsK3PxS6RhZOVmo7rqEDjBovA" bgcolor=3D"#1a73e8" >
+         <span  style=3D"-webkit-text-size-adjust: none; display: block;pad=
+ding-left:7px;padding-right:9px;">Go to my console</span>
+         </a>
+     </td>
+<![endif]-->
+					<!--[if !mso]><!-->
+      <td style=3Dborder-collapse:collapse>
+		<a style=3D"-khtml-border-radius:2px; -moz-border-radius:3px; -moz-border=
+-radius-bottomleft:0; -moz-border-radius-bottomright:3px; -moz-border-radiu=
+s-topleft:0; -moz-border-radius-topright:3px; -ms-border-radius:2px; -o-bor=
+der-radius:2px; -webkit-border-bottom-left-radius:3px; -webkit-border-botto=
+m-right-radius:3px; -webkit-border-radius:3px; -webkit-border-top-left-radi=
+us:0; -webkit-border-top-right-radius:3px; background-color:#1a73e8; border=
+-bottom-left-radius:3px; border-bottom-right-radius:3px; border-color:#1a73=
+e8; border-radius:3px; border-style:solid; border-top-left-radius:3px; bord=
+er-top-right-radius:3px; color:#ffffff; display:inline-block; font-family:G=
+oogle Sans, Arial; font-size:14px; font-weight:500; line-height:24px; margi=
+n:0; mso-hide:all; text-decoration:none" target=3D_blank target=3D_blank hr=
+ef=3Dhttps://c.gle/ANiao5pOqvvaE7a8CX9Ej0FnfJun-_MnsFcB5LE_-JdU-whyIXY-iRSg=
+oEuV4DRbI5Q5YcvRF4mO-DeaDB_PQHr49L__VgAs3At6TWAGp_-OI4wBoNZh2h2s2m7_klus7Jb=
+_ZfrKagp4IFpdmgSp_rn-Url-_qjtBszoZrUI4pZLV-EbRYXFpV5GtIl-xTKHGfr6y0wLP6W8Qc=
+-6JBTBg3Eg7K9PMrWrnAVQBi64uVDgT55n5KTwJBfLV8EreDW6eYSJbvutflxVmuaAHBqv4WGag=
+wNsK3PxS6RhZOVmo7rqEDjBovA bgcolor=3D#1a73e8>
+         <span style=3D"-webkit-text-size-adjust: none; display: block;padd=
+ing-left:16px;padding-right:15px; padding-top:9px; padding-bottom:9px;">Go =
+to my console</span>
+         </a>
+     </td>
+      <!--<![endif]-->
+   </tr>
+</table>
+      </td>
+   </tr>
+
+<tr>
+<td class=3D"flexible main_heading_2" style=3D"border-collapse:collapse; co=
+lor:#3C4043; font-family:Google Sans,Roboto, Arial; font-size:14px; font-we=
+ight:normal; line-height:24px; text-align:left; padding-bottom: 0px; paddin=
+g-top: 0px; padding-left:50px; padding-right:0px; word-break:normal;">
+See you in the cloud,
+</td>
+</tr>
+<tr>
+<td class=3D"flexible main_heading_2" style=3D"border-collapse:collapse; co=
+lor:#3C4043; font-family:Google Sans,Roboto, Arial; font-size:14px; font-we=
+ight:bold; line-height:24px; text-align:left; padding-bottom: 16px; padding=
+-top: 0px; padding-left:50px; padding-right:0px; word-break:normal;">
+The Google Cloud Team
+</td>
+</tr>
+       =20
+
+       =20
+  =20
+      </td>
+  =20
+  </tr>
+    <tr>
+    <td class=3Dgrey_td style=3Dpadding-left:50px;padding-right:50px>
+      <table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0=
+ style=3Dwidth:100%>
+  <tr>
+
+<td class=3Dgrey_section style=3Dpadding-top:9px;padding-bottom:34px;backgr=
+ound-color:#ffffff;>
+
+<table role=3Dpresentation bgcolor=3D#ffffff width=3D100% cellspacing=3D0 c=
+ellpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -premailer-cel=
+lspacing:0; mso-table-lspace:0; mso-table-rspace:0;background-color:#ffffff=
+; border: 1px solid #3C4043; -khtml-border-radius:2px; -moz-border-radius:3=
+px; -moz-border-radius-bottomleft:0; -moz-border-radius-bottomright:3px; -m=
+oz-border-radius-topleft:0; -moz-border-radius-topright:3px; -ms-border-rad=
+ius:2px; -o-border-radius:2px; -webkit-border-bottom-left-radius:3px; -webk=
+it-border-bottom-right-radius:3px; -webkit-border-radius:3px; -webkit-borde=
+r-top-left-radius:0; -webkit-border-top-right-radius:3px; border-bottom-lef=
+t-radius:3px; border-bottom-right-radius:3px; border-color: #3C4043; border=
+-radius:3px; border-style:solid; border-top-left-radius:3px; border-top-rig=
+ht-radius:3px;">
+<tr>
+<td class=3Dleft-right-spacing style=3D"padding-left:19px; padding-right: 2=
+5px;">
+<table role=3Dpresentation style=3D"-premailer-cellpadding:0; -premailer-ce=
+llspacing:0; border-collapse:initial; font-family:roboto, arial;  font-weig=
+ht:normal; mso-table-lspace:0; mso-table-rspace:0;" width=3D100% cellpaddin=
+g=3D0 cellspacing=3D0>
+				<tr>
+					<td style=3D"border-collapse:initial; font-size:12px; padding-top:15px=
+; padding-left: 0px; padding-bottom:23px; padding-right: 0px;  ">
+                      <table role=3Dpresentation width=3D100% cellspacing=
+=3D0 cellpadding=3D0 border=3D0 margin=3D0 padding=3D0 style=3D"premailer-c=
+ellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; mso-table=
+-lspace:0; mso-table-rspace:0; text-align:left;">
+						=20
+                        <tr>
+				                    <td style=3D"padding-top:0px; font-family:Roboto,Ar=
+ial; font-size:14px; line-height:24px; font-weight:normal; color:#3C4043;pa=
+dding-bottom: 0px; word-break:normal">
+                                      * Your free trial <span style=3Dfont-=
+weight:bold;>stays free</span>. If you use a credit or debit card, there=E2=
+=80=99s no charge unless you turn on automatic billing. If you use NetBanki=
+ng, you can request a refund of your one-time prepayment by closing your Cl=
+oud billing account.
+
+				                    </td>
+				                 </tr>
+					=09
+</table>
+
+</td>
+</tr>
+  </table>
+</td>
+</tr>
+  </table>
+      </table>
+      </td>
+    </tr>
+    <tr>
+
+    <td class=3Dfooter_wrapper_td style=3D"padding-right:50px; padding-left=
+:50px;">
+      <table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0=
+ style=3Dwidth:100%>
+<tr>
+   <td class=3Dbottom_link_footer_td align=3Dleft width=3D100% style=3D"mar=
+gin:0; padding:0; padding-right:0px;">
+<!--[if mso]>
+    <table role=3D"presentation" class=3D"bottom_link_container" cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" style=3D"-premailer-cellpadding:0; -=
+premailer-cellspacing:0; background:#ffffff;border-top:1px solid #D8D8D8; b=
+order-collapse:collapse; font-family:Roboto, arial; font-weight:normal; mar=
+gin:0;  mso-table-lspace:0; mso-table-rspace:0; width:500px;" width=3D"500"=
+>
+ <![endif]-->
+ <!--[if !mso]> <!---->
+<table role=3Dpresentation class=3Dbottom_link_container cellspacing=3D0 ce=
+llpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -premailer-cell=
+spacing:0; background:#ffffff; border-collapse:collapse; border-top:1px sol=
+id #D8D8D8; font-family:Roboto, arial; font-weight:normal; margin:0 auto; m=
+ax-width:600px; mso-table-lspace:0; mso-table-rspace:0; width:100%" width=
+=3D100%>
+ <!-- <![endif]-->
+  <tr>
+     <td style=3Dborder-collapse:collapse>
+        <table role=3Dpresentation width=3D100% cellspacing=3D0 cellpadding=
+=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0=
+; border-collapse:collapse; font-family:Roboto, arial; font-weight:normal; =
+mso-table-lspace:0; mso-table-rspace:0">
+      <!--[if (gte mso 9)|(IE)]>
+ <tr><td width=3D"500">
+ <table role=3D"presentation" width=3D"500" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" >
+ <![endif]-->
+    <tr>
+       <td class=3Dtext_wrapper_inner_td style=3D"-khtml-border-radius:0 0 =
+5px 5px; -moz-border-radius:0 0 5px 5px; -webkit-border-radius:0 0 5px 5px;=
+ border-collapse:collapse; border-radius:0 0 5px 5px; color:#455a64; font-f=
+amily:Roboto, arial; font-size:14px; line-height:24px; padding-bottom:0;">
+         <table role=3Dpresentation class=3Dbottom_link_container_inner_tab=
+le width=3D100% style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0=
+; border-collapse:collapse; font-family:Roboto, arial; font-weight:normal; =
+max-width:600px; mso-table-lspace:0; mso-table-rspace:0; width:100%" cellpa=
+dding=3D0 cellspacing=3D0>
+            <tr>
+              <td class=3Dfive-column style=3D"border-collapse:collapse;fon=
+t-size:0;padding: 16px 0px 15px 0px;text-align:left;padding-right: 0px;" al=
+ign=3Dleft>
+
+     <table role=3Dpresentation class=3Dcontents align=3Dleft style=3D"-pre=
+mailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; f=
+ont-family:Roboto, arial; font-size:14px; font-weight:normal; mso-table-lsp=
+ace:0; mso-table-rspace:0; text-align:left; width:100px;" cellpadding=3D0 c=
+ellspacing=3D0 width=3D100>
+      <tr>
+        <td class=3Dtext id=3Dft1 valign=3Dmiddle style=3D"border-collapse:=
+collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; font-size:=
+14px; font-weight:500; line-height:18px; padding-right:7px; text-align:left=
+; width:26px;padding-left:0px;" align=3Dleft width=3D26>
+ <a target=3D_blank href=3Dhttps://c.gle/ANiao5qzJyW7g_SSn3BAlwChjI_-NtZ58v=
+8lsQZLRkXEi61-vWy-1hwOJuOmv7a0tJh5e3Pu6cuRGDcg-hrjn25Kfg2xXqaxz7yIRCw7EAgPu=
+_CJTFgnZtVIqpxJp6ngj9aeOgGKV3NML8BbL-pr96YIfXHeERXUVjV1n4j1orcnzi8_UhDQFRsH=
+xhNuRVrmgdVuWsbrHphazvf2LtDF6MpxMKj30qvKNwZod0_UqqudPTDQwaQkpfhsno2weJLlMVd=
+dcFbTlkce3VNKJ_ZjqRKx target=3D_blank style=3D"color:#1A73E8; font-family:G=
+oogle Sans, Roboto, arial; font-size:14px; font-weight:500; line-height:18p=
+x; text-align:left; text-decoration:none" class=3D"bottom_link_text bottom_=
+link_text_mbl" align=3Dleft aria-hidden=3Dtrue><img src=3Dhttp://services.g=
+oogle.com/fh/files/emails/ic_contact_support_24px.png valign=3Dmiddle width=
+=3D19 border=3D0 alt=3D"" style=3D"-ms-interpolation-mode:bicubic; height:a=
+uto; outline:none; text-decoration:none;vertical-align:middle;" height=3Dau=
+to></a>
+        </td>
+        <td class=3Dtext1 width=3D100% valign=3Dmiddle style=3D"border-coll=
+apse:collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; font-=
+size:14px; font-weight:500; line-height:18px; text-align:left;width:100%; p=
+adding-top:1px;padding-right:21px" align=3Dleft>
+ <a target=3D_blank href=3Dhttps://c.gle/ANiao5qzJyW7g_SSn3BAlwChjI_-NtZ58v=
+8lsQZLRkXEi61-vWy-1hwOJuOmv7a0tJh5e3Pu6cuRGDcg-hrjn25Kfg2xXqaxz7yIRCw7EAgPu=
+_CJTFgnZtVIqpxJp6ngj9aeOgGKV3NML8BbL-pr96YIfXHeERXUVjV1n4j1orcnzi8_UhDQFRsH=
+xhNuRVrmgdVuWsbrHphazvf2LtDF6MpxMKj30qvKNwZod0_UqqudPTDQwaQkpfhsno2weJLlMVd=
+dcFbTlkce3VNKJ_ZjqRKx target=3D_blank style=3D"color:#1A73E8; font-family:G=
+oogle Sans, Roboto, arial; font-size:14px; font-weight:500; line-height:18p=
+x; text-align:left; text-decoration:none;white-space:nowrap;" class=3D"bott=
+om_link_text bottom_link_text_mbl" align=3Dleft>Support</a>
+        </td>
+     </tr>
+   </table>
+
+     <table role=3Dpresentation class=3Dcontents align=3Dleft style=3D"-pre=
+mailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; f=
+ont-family:Roboto, arial; font-size:14px; font-weight:normal; mso-table-lsp=
+ace:0; mso-table-rspace:0; text-align:left; width:94px;" cellpadding=3D0 ce=
+llspacing=3D0 width=3D94>
+       <tr>
+          <td class=3Dtext id=3Dft2 valign=3Dmiddle style=3D"border-collaps=
+e:collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; font-siz=
+e:14px; font-weight:500; line-height:18px; padding-right:6px; text-align:le=
+ft; width:25px;padding-left:0px;" align=3Dleft width=3D25>
+ <a target=3D_blank href=3Dhttps://c.gle/ANiao5otXt7svTni3fCPAb9hpQzfj4Q9Vv=
+-ArDsU0C4SVJILYjUhBnh-26WJUdxNlXbLkKp9wK5WTVW1xbjlIaiXFpp1cCs-lFx0KbnSQFCqv=
+Wkf7VgMT85Hvfp-v_bHdrCXiqsytSH91bHCqW8 target=3D_blank style=3D"color:#1A73=
+E8; font-family:Google Sans, Roboto, arial; font-size:14px; font-weight:500=
+; line-height:18px; text-align:left; text-decoration:none" class=3D"bottom_=
+link_text bottom_link_text_mbl" align=3Dleft aria-hidden=3Dtrue><img src=3D=
+http://services.google.com/fh/files/emails/ic_forum_support_24px.png valign=
+=3Dmiddle width=3D19 border=3D0 alt=3D"" style=3D"-ms-interpolation-mode:bi=
+cubic; height:auto; outline:none; text-decoration:none;vertical-align:middl=
+e;" height=3Dauto></a>
+          </td>
+          <td class=3Dtext1 width=3D100% valign=3Dmiddle style=3D"border-co=
+llapse:collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; fon=
+t-size:14px; font-weight:500; line-height:18px; text-align:left;width:100%;=
+ padding-top:1px;padding-right:19px" align=3Dleft>
+ <a target=3D_blank href=3Dhttps://c.gle/ANiao5otXt7svTni3fCPAb9hpQzfj4Q9Vv=
+-ArDsU0C4SVJILYjUhBnh-26WJUdxNlXbLkKp9wK5WTVW1xbjlIaiXFpp1cCs-lFx0KbnSQFCqv=
+Wkf7VgMT85Hvfp-v_bHdrCXiqsytSH91bHCqW8 target=3D_blank style=3D"color:#1A73=
+E8; font-family:Google Sans, Roboto, arial; font-size:14px; font-weight:500=
+; line-height:18px; text-align:left; text-decoration:none;white-space:nowra=
+p;" class=3D"bottom_link_text bottom_link_text_mbl" align=3Dleft>Forums</a>
+          </td>
+      </tr>
+    </table>
+
+     <table role=3Dpresentation class=3Dcontents align=3Dleft style=3D"-pre=
+mailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; f=
+ont-family:Roboto, arial; font-size:14px; font-weight:normal; mso-table-lsp=
+ace:0; mso-table-rspace:0; text-align:left; width:148px;" cellpadding=3D0 c=
+ellspacing=3D0 width=3D148>
+       <tr>
+           <td class=3Dtext id=3Dft3 valign=3Dmiddle style=3D"border-collap=
+se:collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; font-si=
+ze:14px; font-weight:500; line-height:18px; padding-right:8px; text-align:l=
+eft; width:25px;padding-left:0px;" align=3Dleft width=3D25>
+             <a target=3D_blank href=3Dhttps://c.gle/ANiao5pZB7F1xQmGZ73SNZ=
+2BoQOelipLUSDcF6t6HjKf71iY9xLia0yMUxrFPhUJyITNEMG5r1yViOsqE8lMUsHyvPoM87KUq=
+w2Jl9cPlcdan-MKou2AK3-qW09OilO11ZuZfbWboMo2_ag-8xAoFPBojEKca9b_OPsZApwYlUhQ=
+OiWEfP4bgs1s51gdUs5OO4Rv8sueTNZVHQD5FEykasUKrRvN6r77IE6uT0cQYZBtRJjLD8Qg1lc=
+gPYFDwzoDPA6A7ne9x1PyoKDFcUxRpW8 target=3D_blank style=3D"color:#1A73E8; fo=
+nt-family:Google Sans, Roboto, arial; font-size:14px; font-weight:500; line=
+-height:18px; text-align:left; text-decoration:none" class=3D"bottom_link_t=
+ext bottom_link_text_mbl" align=3Dleft aria-hidden=3Dtrue><img src=3Dhttp:/=
+/services.google.com/fh/files/emails/ic_documentation_support_24px_copy.png=
+ valign=3Dmiddle width=3D19 border=3D0 alt=3D"" style=3D"-ms-interpolation-=
+mode:bicubic; height:auto; outline:none; text-decoration:none;vertical-alig=
+n:middle;" height=3Dauto></a>
+            </td>
+            <td class=3Dtext1 width=3D100% valign=3Dmiddle style=3D"border-=
+collapse:collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; f=
+ont-size:14px; font-weight:500; line-height:18px; text-align:left;width:100=
+%; padding-top:1px;padding-right:16px" align=3Dleft>
+ <a target=3D_blank href=3Dhttps://c.gle/ANiao5pZB7F1xQmGZ73SNZ2BoQOelipLUS=
+DcF6t6HjKf71iY9xLia0yMUxrFPhUJyITNEMG5r1yViOsqE8lMUsHyvPoM87KUqw2Jl9cPlcdan=
+-MKou2AK3-qW09OilO11ZuZfbWboMo2_ag-8xAoFPBojEKca9b_OPsZApwYlUhQOiWEfP4bgs1s=
+51gdUs5OO4Rv8sueTNZVHQD5FEykasUKrRvN6r77IE6uT0cQYZBtRJjLD8Qg1lcgPYFDwzoDPA6=
+A7ne9x1PyoKDFcUxRpW8 target=3D_blank style=3D"color:#1A73E8; font-family:Go=
+ogle Sans, Roboto, arial; font-size:14px; font-weight:500; line-height:18px=
+; text-align:left; text-decoration:none;white-space:nowrap;" class=3D"botto=
+m_link_text bottom_link_text_mbl" align=3Dleft>Documentation</a>
+           </td>
+     </tr>
+   </table>
+              =20
+   <table role=3Dpresentation class=3Dcontents align=3Dleft style=3D"-prema=
+iler-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; fon=
+t-family:Roboto, arial; font-size:14px; font-weight:normal; mso-table-lspac=
+e:0; mso-table-rspace:0; text-align:left; width:107px;" cellpadding=3D0 cel=
+lspacing=3D0 width=3D107>
+       <tr>
+           <td class=3Dtext id=3Dft4 valign=3Dmiddle style=3D"border-collap=
+se:collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; font-si=
+ze:14px; font-weight:500; line-height:18px; padding-right:8px; text-align:l=
+eft; width:25px;padding-left:0px;" align=3Dleft width=3D25>
+             <a target=3D_blank href=3Dhttps://c.gle/ANiao5oSHCuQA_DhUFfSiL=
+J7gGIOQQvXlxv9MAvqjk_IZCJ6MIAP7evAhgQCxQq_zWB1TMJGsVUB5YAXSRax5-Q1Vw-I-CtW0=
+DrbRzbijLfwcL8akgUVc52T8pk-ovK9zHDLiM3Bq5sPC8S38gVlLFPHOBnJ4kOqr2Ly39t5RTBf=
+iCKuD6hnIRsPa55CoGOlNhhDqh014lkE_jmF9rU-LENL04Bng7CuGRw_Qa1LzKYvs_6M1l3UtsC=
+xNIFBCMeMVGX3gdRKbj81eiesgu9kN42AtSUc1p0 target=3D_blank style=3D"color:#1A=
+73E8; font-family:Google Sans, Roboto, arial; font-size:14px; font-weight:5=
+00; line-height:18px; text-align:left; text-decoration:none" class=3D"botto=
+m_link_text bottom_link_text_mbl" align=3Dleft aria-hidden=3Dtrue><img src=
+=3Dhttp://services.google.com/fh/files/emails/ic_tutorials_support_24px_cop=
+y2.png valign=3Dmiddle width=3D19 border=3D0 alt=3D"" style=3D"-ms-interpol=
+ation-mode:bicubic; height:auto; outline:none; text-decoration:none;vertica=
+l-align:middle;" height=3Dauto></a>
+            </td>
+            <td class=3Dtext1 width=3D100% valign=3Dmiddle style=3D"border-=
+collapse:collapse; color:#1A73E8; font-family:Google Sans, Roboto, arial; f=
+ont-size:14px; font-weight:500; line-height:18px; text-align:left;width:100=
+%; padding-top:1px;padding-right:0px" align=3Dleft>
+ <a target=3D_blank href=3Dhttps://c.gle/ANiao5oSHCuQA_DhUFfSiLJ7gGIOQQvXlx=
+v9MAvqjk_IZCJ6MIAP7evAhgQCxQq_zWB1TMJGsVUB5YAXSRax5-Q1Vw-I-CtW0DrbRzbijLfwc=
+L8akgUVc52T8pk-ovK9zHDLiM3Bq5sPC8S38gVlLFPHOBnJ4kOqr2Ly39t5RTBfiCKuD6hnIRsP=
+a55CoGOlNhhDqh014lkE_jmF9rU-LENL04Bng7CuGRw_Qa1LzKYvs_6M1l3UtsCxNIFBCMeMVGX=
+3gdRKbj81eiesgu9kN42AtSUc1p0 target=3D_blank style=3D"color:#1A73E8; font-f=
+amily:Google Sans, Roboto, arial; font-size:14px; font-weight:500; line-hei=
+ght:18px; text-align:left; text-decoration:none;white-space:nowrap;" class=
+=3D"bottom_link_text bottom_link_text_mbl" align=3Dleft>Tutorials</a>
+           </td>
+     </tr>
+   </table>
+     </td>
+     </tr>
+     </table>
+         </td>
+         </tr>
+      <!--[if (gte mso 9)|(IE)]>
+</table>
+ </td></tr>
+ <![endif]-->
+     </table>
+     </td>
+     </tr>
+</table>
+</td>
+</tr>
+      </table>
+      </td>
+    </tr>
+
+  </table>
+  </td>
+</tr>
+=20
+  =20
+=20
+<tr>
+  <td width=3D100% style=3Dborder-collapse:collapse;width:100%;>
+     <table role=3Dpresentation width=3D100% class=3Dcontent_wrapper cellsp=
+acing=3D0 cellpadding=3D0 border=3D0 style=3D"-premailer-cellpadding:0; -pr=
+emailer-cellspacing:0; border-collapse:collapse; font-family:Roboto,Arial; =
+font-weight:normal; margin:0 auto; max-width:600px; mso-table-lspace:0; mso=
+-table-rspace:0; width:100%">
+
+        <tr>
+            <td class=3Dfooter_wrapper_td style=3D"border-collapse:collapse=
+; color:#5F6368; font-family:Roboto, arial; font-size:12px; line-height:18p=
+x; padding:28px 50px 0px 50px; text-align:left">=20
+               <img src=3Dhttp://services.google.com/fh/files/emails/bottom=
+_footer_logo.png alt=3D"Google Cloud" width=3D140 style=3D"-ms-interpolatio=
+n-mode:bicubic; outline:none; text-decoration:none;padding-top:13px; paddin=
+g-bottom
+:10px">
+             </td>
+       </tr>
+
+       <tr>
+           <td class=3Dfooter_wrapper_td style=3D"border-collapse:collapse;=
+ color:#5F6368; font-family:Roboto, arial; font-size:12px; line-height:18px=
+; padding:9px 50px 9px 50px; text-align:left; word-break: break-word;">=20
+     <a style=3Dpointer-events:none;cursor:text;text-decoration:none;color:=
+#5F6368;font-size:12px;>Google LLC 1600 Amphitheatre Parkway, Mountain View=
+, CA 94043</a>
+           </td>
+       </tr>
+
+        <tr>
+           <td class=3Dfooter_wrapper_td style=3D"border-collapse:collapse;=
+ color:#5F6368; font-family:Roboto, arial; font-size:12px; line-height:18px=
+; padding:23px 50px 19px 50px; padding-top:9px; text-align:left; word-break=
+: break-word;">=20
+     You have received this mandatory service announcement to update you ab=
+out important changes to <span style=3D" white-space: nowrap;">Google Cloud=
+</span> or your account.
+           </td>
+       </tr>
+
+            <tr>
+                      <td class=3D"social_icons_container flexible" style=
+=3D"background-color:#f8f9fa; border-collapse:collapse; padding:11px 50px 1=
+5px 34px; width:100%" width=3D100%>=20
+                        <table role=3Dpresentation class=3Dsocial_icons_con=
+tainer_inner cellspacing=3D0 cellpadding=3D0 border=3D0 align=3Dleft style=
+=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:col=
+lapse; font-family:Arial, sans-serif; font-weight:normal; margin:0 auto; ms=
+o-table-lspace:0; mso-table-rspace:0">=20
+                 <tr>
+                     <td width=3D30 class=3Dsocial_icons_container_inner st=
+yle=3D"border-collapse:collapse; margin:0 auto"><a target=3D_blank href=3Dh=
+ttps://c.gle/ANiao5pgC1vGZpD3pVrJUZCcIhHBR4uIh95i5D7CfrXAj6snTrtSZNLEuh4jDn=
+rZw__K8BQC2gQ_Az7jBLJcy0-JeVBexQbOHc4KqQDOrn_uupixVl3lj1Yy3Abx1B2ZIWY82_JnJ=
+zdwKEbSkG8xR3Y1xTbtiluiaysgYRAqQdnvvy8jBhdiU1s5zPDoUzVuvmvtvXF_VbnIJS89f-b8=
+mvj9ijuFsBB6rbuIcOFTFkSdtazjza2KifwSWouDRTqPNvbfcNibvuc target=3D_blank><im=
+g src=3Dhttp://services.google.com/fh/files/emails/ic-footer-blog.png alt=
+=3D"Google Cloud Blog" width=3D48 style=3D"-ms-interpolation-mode:bicubic; =
+border:none; outline:none; text-decoration:none"></a></td>
+                     <td width=3D10 style=3Dborder-collapse:collapse>&nbsp;=
+ &nbsp;</td>
+                     <td width=3D30 class=3Dsocial_icons_container_inner st=
+yle=3D"border-collapse:collapse; margin:0 auto"><a target=3D_blank href=3Dh=
+ttps://c.gle/ANiao5pX4S2rDdNlhN0D2bchjH9U4FVI91d3qdCvlNfA_FGl9P20x9ERXNDNxj=
+-B1HiangdyEvVUhO4zfJ0fsIrHa60Rh6VclsW9hikqYTydJLVUgbq-OzIWh5WrIh5Q5DlciLoXf=
+6cTqXdykK87 target=3D_blank><img src=3Dhttp://services.google.com/fh/files/=
+emails/ic-footer-github.png alt=3DGitHub width=3D48 style=3D"-ms-interpolat=
+ion-mode:bicubic; border:none; outline:none; text-decoration:none"></a></td=
+>
+                     <td width=3D10 style=3Dborder-collapse:collapse>&nbsp;=
+ &nbsp;</td>
+                     <td width=3D30 class=3Dsocial_icons_container_inner st=
+yle=3D"border-collapse:collapse; margin:0 auto"><a target=3D_blank href=3Dh=
+ttps://c.gle/ANiao5rumk2_QDIq_AjOB5dw-vtRYA5E2WvrrTHh5puVN7Wf3urnIPJXJIsinW=
+bGVUASGhRXxLCbW2qK7Hp6yTKjc8AlNv1ka2WjjiYcmg9YY6Dz2pevS2ZNTyTFxzxsuIkFBSH3L=
+cedCeMtlm1h4oCAw9l7YC6dhBI target=3D_blank><img src=3Dhttp://services.googl=
+e.com/fh/files/emails/ic-footerlinkedin.png alt=3DLinkedIn width=3D48 style=
+=3D"-ms-interpolation-mode:bicubic; border:none; outline:none; text-decorat=
+ion:none"></a></td>
+                     <td width=3D10 style=3Dborder-collapse:collapse>&nbsp;=
+ &nbsp;</td>
+                     <td width=3D33 class=3Dsocial_icons_container_inner st=
+yle=3D"border-collapse:collapse; margin:0 auto"><a target=3D_blank href=3Dh=
+ttps://c.gle/ANiao5r4IqEP1OYXmRu-OPIWQ5s78Tov0oFTLkytbjb14XUOjpK4K9MghP0d8W=
+d3L3e-RipwOt4sPLQfjFcwIeqPmnf-FhE9yotENeX58_Tvkm4NuOZH7xZiKosN_kMQuxYxa-Qv2=
+O-k target=3D_blank><img src=3Dhttps://services.google.com/fh/files/emails/=
+twitter_x_logo_new6.png alt=3DTwitter width=3D48 style=3D"-ms-interpolation=
+-mode:bicubic; border:none; outline:none; text-decoration:none"></a></td>
+                     <td width=3D10 style=3Dborder-collapse:collapse>&nbsp;=
+ &nbsp;</td>
+                     <td width=3D33 class=3Dsocial_icons_container_inner st=
+yle=3D"border-collapse:collapse; margin:0 auto"><a target=3D_blank href=3Dh=
+ttps://c.gle/ANiao5oDBzLUYfaJCu5GrmSMRv9JX_nTf2hpCiWdDPzgu0WXq3Hr2MyuQlB3SI=
+b-fczhXEuQRVUgKvYCwp35kh3D0nz_uaF24NbwPMx-yQbzP8Z9lIs3oaL9E5-mOw6Bph0oMvlhm=
+7XQ0uBNQVIfAw target=3D_blank><img src=3Dhttp://services.google.com/fh/file=
+s/emails/ic-footer-facebook.png alt=3DFacebook width=3D48 style=3D"-ms-inte=
+rpolation-mode:bicubic; border:none; outline:none; text-decoration:none"></=
+a></td>
+                  </tr>
+                        </table>
+                       </td>
+                    </tr>
+=20
+	</table>
+</section>
+</div>
+
+
+ <!--[if mso ]>
+<table id=3D"email-container" style=3D"width:600px;line-height:0;font-size:=
+0;height:0;overflow:hidden;border-collapse:collapse" width=3D"600"><img alt=
+=3D"" height=3D"1" src=3D"https://notifications.google.com/g/img/ANiao5oUeD=
+SkoZ4JhLauBzToCTO9sgJ8ez1s_9ACyESFyhKVr_x4Fmwd6tHh4IiVwqt00ut5cGZRv7MLRcWHm=
+5SeNghU6jBF68E7MUp7w6VKO8h1rdvcNiaMzJJETRMUESGKTdZJ_g.gif" width=3D"3"></ta=
+ble><![endif]-->
+<!--[if !mso]><!-->
+<div style=3Dwidth:auto;line-height:0;font-size:0;height:0;overflow:hidden;=
+border-collapse:collapse><img alt=3D"" height=3D1 src=3Dhttps://notificatio=
+ns.google.com/g/img/ANiao5oUeDSkoZ4JhLauBzToCTO9sgJ8ez1s_9ACyESFyhKVr_x4Fmw=
+d6tHh4IiVwqt00ut5cGZRv7MLRcWHm5SeNghU6jBF68E7MUp7w6VKO8h1rdvcNiaMzJJETRMUES=
+GKTdZJ_g.gif width=3D3></div>
+<!--<![endif]-->
+</div>
+
+=20
+
+  </body>
+</html>
+=20
+
+--00000000000014488d0637295683--
+
+From 1834184270579544719-1749214428000 Fri Jun 06 12:53:50 2025
+Delivered-To: relyance-test@denisolt.com
+Received: by 2002:aa7:d5cd:0:b0:607:2b5:92ed with SMTP id d13csp896944eds;
+        Fri, 6 Jun 2025 05:53:50 -0700 (PDT)
+X-Received: by 2002:a05:620a:4408:b0:7ce:e283:10b8 with SMTP id af79cd13be357-7d2dd8cde08mr317089585a.1.1749214430471;
+        Fri, 06 Jun 2025 05:53:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749214430; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DlDUJMsT+JWBC4gvIsOdgVsGBIMSgP4/jOUASEHSa79el28j9awnRK812VtFj3vSL0
+         P0dxqd93yy0iQSFDn3YEJMEk2GVztqMauAoAa5e4PgohCKsJaK9BZKNrVMSfc5CZpl8t
+         LAuJ/+wUB2RMjoWfIQ+yB2VDZHWlmIf+b7omzHvKZsU3hGnNoCOmQiXq5PFB109u60zC
+         OyX0uHK8/ViaXTZa4bMvo35UA1XmH1/2IAxz3GsFg/Pmy8hi/cx7iz6i5qvCyd5jFOF5
+         EUW96OV5dl34byqsPZjAFvxtWwsPByHzxS/seEcNfDebGEzTg1i8xZ3o4bDbAqFmettp
+         JTtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :dkim-signature;
+        bh=+8FFBNvDqrBq8Vq4DhHHtO3XzDUBv497Opn/N3gzgTc=;
+        fh=uHMkSlnV/R28K5JKD7wbSWOAob/gxFHq9bmP6u9Mbtg=;
+        b=fxFHjHuDMqdm2xM5lpHqgFi6fb0HyScuOUOlPsufQdGYFj5EVGhDKP4cr44pGRT5CJ
+         aa4pNtTrmlF01CBKABsaCx7f3iZrvpd2ij2sEcrNoHHAW2v8lvQtoZQ9xXF237xzOxvv
+         Rc5axs+tJ3w9aE4KV0IwEZsIl6FS+bqQAOMxRx0AlUo4vwF5TkQW5LYInopASrLwt8Fz
+         MhbVrhcyP/pNse2II6vwbPF+ztXd6jlg8W7381MCMtLw5OTNUtDh/KRmAvBKDKLze+er
+         W3ig3tH2XUjttFo2o4HaO07etiqcLRg0EcffhwF25s9gwRD6oZTT95UtP2GgqMVWB5vg
+         TCEw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=Blxw64WC;
+       spf=pass (google.com: domain of 33ercaagtapopq-tgrn0ceeqwpvu.iqqing.eqo@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=33eRCaAgTAPopq-tgrn0ceeqwpvu.iqqing.eqo@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@denisolt.com
+Return-Path: <33eRCaAgTAPopq-tgrn0ceeqwpvu.iqqing.eqo@gaia.bounces.google.com>
+Received: from mail-sor-f73.google.com (mail-sor-f73.google.com. [209.85.220.73])
+        by mx.google.com with SMTPS id 6a1803df08f44-6fb0103ae04sor21034506d6.5.2025.06.06.05.53.49
+        for <relyance-test@denisolt.com>
+        (Google Transport Security);
+        Fri, 06 Jun 2025 05:53:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 33ercaagtapopq-tgrn0ceeqwpvu.iqqing.eqo@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=Blxw64WC;
+       spf=pass (google.com: domain of 33ercaagtapopq-tgrn0ceeqwpvu.iqqing.eqo@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=33eRCaAgTAPopq-tgrn0ceeqwpvu.iqqing.eqo@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@denisolt.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=accounts.google.com; s=20230601; t=1749214429; x=1749819229; darn=denisolt.com;
+        h=to:from:subject:message-id:feedback-id:date:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+8FFBNvDqrBq8Vq4DhHHtO3XzDUBv497Opn/N3gzgTc=;
+        b=Blxw64WCOh/ywbJ7hzQQk69A53hMCK49qXV1eFkc/hZG3Lyr8k3BzHNjBGaGhQTDHS
+         XNGR67KNQHqBfuevqBDlKvd0f/6R+tj+4FmZVOyBwmD1uZ1C4oN7oLXQxV1a4hTS3TJc
+         roCzR/qFJ3u9TyopGbIN1KoM3BkcLIGzXSIJw5hUeL4MkBY3U8gEMdSaiii6WtuuGDTu
+         es2XcI4oLptIeWIE/b9Yjy1oOiSSLcr+rAYk5HlaRrfIh4WOj7GBZZLxi9l41iK57/Nj
+         VmBSbS6cjDeysv1YVUkaz/P/xs92sM/JzdSUEZy0cboNMbibZQQF8Od+EGEmwfecKJOC
+         Z6EQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749214429; x=1749819229;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+8FFBNvDqrBq8Vq4DhHHtO3XzDUBv497Opn/N3gzgTc=;
+        b=cZSlVzoSxtpzsGS3rN+YxqEL36267og9Duzgh0dDeZ9ANk/hKG27p1tTatNy/OAYAd
+         mB8pHqbXZs8yV0bbR/AAkpevBcHoSjqZapTUM1Cquv0JmufngZHPvL4zQ/9jtwFYwBW9
+         mQ0CUfOKNgsvT2zasrRjIBsBYTk+JWaO45gB2CNC0Ed9Rl40T7KE8LI3TWfFIiUv1yte
+         S7EC883S1xLjV38p2mLn+XUP2VBsgCauTLwWVLX+a6MuTTmdmBe/QN2G3xOMhp6K/2U/
+         FqBAt7zt6lg4kEffHYvt1PkjoILENr7NTSgJFLKuXpyH15pYqfA0P/Qng5Erui/2dyo7
+         e0Uw==
+X-Gm-Message-State: AOJu0YyPZhql4QMByOmZCPi31Qcg1PTnTEUsM//eEriZTIMQ3uqjfsje
+	Z8zknQHUWaywaqZa+WGnSntlqzmZn1Wtx2UBjeqX89ZDjyuovUQFFUbBEQdk5nsytfE7A9sS+Bu
+	McOiB0GhHHTa/pFt6mSYrAebC3zqHD3c+BgPrIGA=
+X-Google-Smtp-Source: AGHT+IExTQzAmM2+a51SEIXzq+qWF5dWxoxTg2Fe5cUO5Pw9SQglwSyK0Wbz+OhMbesY3KahYr6+v++gaCNCWYqKtPkOuA==
+MIME-Version: 1.0
+X-Received: by 2002:a05:6214:27c9:b0:6fa:a797:477c with SMTP id
+ 6a1803df08f44-6fb09c104f9mr39248506d6.3.1749214429516; Fri, 06 Jun 2025
+ 05:53:49 -0700 (PDT)
+Date: Fri, 06 Jun 2025 12:53:48 GMT
+X-Account-Notification-Type: 325
+Feedback-ID: 325:account-notifier
+X-Notifications: 58581434bbca0000
+X-Notifications-Bounce-Info: AWoTSIHHM24Xk8aJ1UMVb-9_TnlXIEiuu-a1IxaVGEaDxJbRpcwx1QXRzBSyfr2cMuUZM13KKIk9P3bSELSckXB2eBw9-z7aknBlnqYYjE5ZXkPfjfL2m5D2T8i7IwBP7Cd21oIhRfbYxc9ENGU22Ts3wYs67W252rjj7fpwxtibZ5CU0_g-TgeRDXctDNF9H4q2mF-6xghZ38-aHJ6APuefwgNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <M8NfywQ-pXn6bxbHwfuJgg@notifications.google.com>
+Subject: Security alert
+From: Google <no-reply@accounts.google.com>
+To: relyance-test@denisolt.com
+Content-Type: multipart/alternative; boundary="000000000000b5129b0636e6b84c"
+
+--000000000000b5129b0636e6b84c
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+W2ltYWdlOiBHb29nbGVdDQpBIG5ldyBzaWduLWluIG9uIFdpbmRvd3MNCg0KDQpyZWx5YW5jZS10
+ZXN0QGRlbmlzb2x0LmNvbQ0KV2Ugbm90aWNlZCBhIG5ldyBzaWduLWluIHRvIHlvdXIgR29vZ2xl
+IEFjY291bnQgb24gYSBXaW5kb3dzIGRldmljZS4gSWYNCnRoaXMgd2FzIHlvdSwgeW91IGRvbuKA
+mXQgbmVlZCB0byBkbyBhbnl0aGluZy4gSWYgbm90LCB3ZeKAmWxsIGhlbHAgeW91IHNlY3VyZQ0K
+eW91ciBhY2NvdW50Lg0KQ2hlY2sgYWN0aXZpdHkNCjxodHRwczovL2FjY291bnRzLmdvb2dsZS5j
+b20vQWNjb3VudENob29zZXI/RW1haWw9cmVseWFuY2UtdGVzdEBkZW5pc29sdC5jb20mY29udGlu
+dWU9aHR0cHM6Ly9teWFjY291bnQuZ29vZ2xlLmNvbS9hbGVydC9udC8xNzQ5MjE0NDI4ODc2P3Jm
+biUzRDMyNSUyNnJmbmMlM0QxJTI2ZWlkJTNENjYyMzg2MDM4OTYyMzM2NjQ3JTI2ZXQlM0QwPg0K
+WW91IGNhbiBhbHNvIHNlZSBzZWN1cml0eSBhY3Rpdml0eSBhdA0KaHR0cHM6Ly9teWFjY291bnQu
+Z29vZ2xlLmNvbS9ub3RpZmljYXRpb25zDQpZb3UgcmVjZWl2ZWQgdGhpcyBlbWFpbCB0byBsZXQg
+eW91IGtub3cgYWJvdXQgaW1wb3J0YW50IGNoYW5nZXMgdG8geW91cg0KR29vZ2xlIEFjY291bnQg
+YW5kIHNlcnZpY2VzLg0KwqkgMjAyNSBHb29nbGUgTExDLCAxNjAwIEFtcGhpdGhlYXRyZSBQYXJr
+d2F5LCBNb3VudGFpbiBWaWV3LCBDQSA5NDA0MywgVVNBDQo=
+--000000000000b5129b0636e6b84c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en"><head><meta name=3D"format-detection" cont=
+ent=3D"email=3Dno"/><meta name=3D"format-detection" content=3D"date=3Dno"/>=
+<style nonce=3D"h8DqgTwi2mrX-u4kyHwLnQ">.awl a {color: #FFFFFF; text-decora=
+tion: none;} .abml a {color: #000000; font-family: Roboto-Medium,Helvetica,=
+Arial,sans-serif; font-weight: bold; text-decoration: none;} .adgl a {color=
+: rgba(0, 0, 0, 0.87); text-decoration: none;} .afal a {color: #b0b0b0; tex=
+t-decoration: none;} @media screen and (min-width: 600px) {.v2sp {padding: =
+6px 30px 0px;} .v2rsp {padding: 0px 10px;}} @media screen and (min-width: 6=
+00px) {.mdv2rw {padding: 40px 40px;}} </style><link href=3D"//fonts.googlea=
+pis.com/css?family=3DGoogle+Sans" rel=3D"stylesheet" type=3D"text/css" nonc=
+e=3D"h8DqgTwi2mrX-u4kyHwLnQ"/></head><body style=3D"margin: 0; padding: 0;"=
+ bgcolor=3D"#FFFFFF"><table width=3D"100%" height=3D"100%" style=3D"min-wid=
+th: 348px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" lang=3D"en"><t=
+r height=3D"32" style=3D"height: 32px;"><td></td></tr><tr align=3D"center">=
+<td><div itemscope itemtype=3D"//schema.org/EmailMessage"><div itemprop=3D"=
+action" itemscope itemtype=3D"//schema.org/ViewAction"><link itemprop=3D"ur=
+l" href=3D"https://accounts.google.com/AccountChooser?Email=3Drelyance-test=
+@denisolt.com&amp;continue=3Dhttps://myaccount.google.com/alert/nt/17492144=
+28876?rfn%3D325%26rfnc%3D1%26eid%3D662386038962336647%26et%3D0"/><meta item=
+prop=3D"name" content=3D"Review Activity"/></div></div><table border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" style=3D"padding-bottom: 20px; max-widt=
+h: 516px; min-width: 220px;"><tr><td width=3D"8" style=3D"width: 8px;"></td=
+><td><div style=3D"border-style: solid; border-width: thin; border-color:#d=
+adce0; border-radius: 8px; padding: 40px 20px;" align=3D"center" class=3D"m=
+dv2rw"><img src=3D"https://www.gstatic.com/images/branding/googlelogo/2x/go=
+oglelogo_color_74x24dp.png" width=3D"74" height=3D"24" aria-hidden=3D"true"=
+ style=3D"margin-bottom: 16px;" alt=3D"Google"><div style=3D"font-family: &=
+#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-b=
+ottom: thin solid #dadce0; color: rgba(0,0,0,0.87); line-height: 32px; padd=
+ing-bottom: 24px;text-align: center; word-break: break-word;"><div style=3D=
+"font-size: 24px;">A new sign-in on Windows </div><table align=3D"center" s=
+tyle=3D"margin-top:8px;"><tr style=3D"line-height: normal;"><td align=3D"ri=
+ght" style=3D"padding-right:8px;"><img width=3D"20" height=3D"20" style=3D"=
+width: 20px; height: 20px; vertical-align: sub; border-radius: 50%;;" src=
+=3D"https://lh3.googleusercontent.com/a/ACg8ocKmo-AEUJGUv0MgIyk3tl8VhMYyT5p=
+fc2HbQ2ztQ4dnfpMe3Q=3Ds96-c" alt=3D""></td><td><a style=3D"font-family: &#3=
+9;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;color: rgb=
+a(0,0,0,0.87); font-size: 14px; line-height: 20px;">relyance-test@denisolt.=
+com</a></td></tr></table> </div><div style=3D"font-family: Roboto-Regular,H=
+elvetica,Arial,sans-serif; font-size: 14px; color: rgba(0,0,0,0.87); line-h=
+eight: 20px;padding-top: 20px; text-align: center;">We noticed a new sign-i=
+n to your Google Account on a Windows device. If this was you, you don=E2=
+=80=99t need to do anything. If not, we=E2=80=99ll help you secure your acc=
+ount.<div style=3D"padding-top: 32px; text-align: center;"><a href=3D"https=
+://accounts.google.com/AccountChooser?Email=3Drelyance-test@denisolt.com&am=
+p;continue=3Dhttps://myaccount.google.com/alert/nt/1749214428876?rfn%3D325%=
+26rfnc%3D1%26eid%3D662386038962336647%26et%3D0" target=3D"_blank" link-id=
+=3D"main-button-link" style=3D"font-family: &#39;Google Sans&#39;,Roboto,Ro=
+botoDraft,Helvetica,Arial,sans-serif; line-height: 16px; color: #ffffff; fo=
+nt-weight: 400; text-decoration: none;font-size: 14px;display:inline-block;=
+padding: 10px 24px;background-color: #4184F3; border-radius: 5px; min-width=
+: 90px;">Check activity</a></div></div><div style=3D"padding-top: 20px; fon=
+t-size: 12px; line-height: 16px; color: #5f6368; letter-spacing: 0.3px; tex=
+t-align: center">You can also see security activity at<br><a style=3D"color=
+: rgba(0, 0, 0, 0.87);text-decoration: inherit;">https://myaccount.google.c=
+om/notifications</a></div></div><div style=3D"text-align: left;"><div style=
+=3D"font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,=
+0,0.54); font-size: 11px; line-height: 18px; padding-top: 12px; text-align:=
+ center;"><div>You received this email to let you know about important chan=
+ges to your Google Account and services.</div><div style=3D"direction: ltr;=
+">&copy; 2025 Google LLC, <a class=3D"afal" style=3D"font-family: Roboto-Re=
+gular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 11px; =
+line-height: 18px; padding-top: 12px; text-align: center;">1600 Amphitheatr=
+e Parkway, Mountain View, CA 94043, USA</a></div></div></div></td><td width=
+=3D"8" style=3D"width: 8px;"></td></tr></table></td></tr><tr height=3D"32" =
+style=3D"height: 32px;"><td></td></tr></table></body></html>
+--000000000000b5129b0636e6b84c--
+
+From 1834095638682186441-1749129903000 Thu Jun 05 01:25:04 2025
+Delivered-To: relyance-test@denisolt.com
+Received: by 2002:aa7:d5cd:0:b0:607:2b5:92ed with SMTP id d13csp251417eds;
+        Thu, 5 Jun 2025 06:25:04 -0700 (PDT)
+X-Received: by 2002:a17:903:2351:b0:234:ba37:879e with SMTP id d9443c01a7336-235e11ea109mr111982595ad.38.1749129904311;
+        Thu, 05 Jun 2025 06:25:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749129904; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Et1+f/RQvVLMCb/6wAAHCrNJL3PIvj/asrPzDxSY4liEm/1exsMUiFYEETme/7D2hi
+         PM5Tg2kpbXOw8sHIQjkVF1v0d7rJ4AxEW0n+OP3a7WNNieqZI5KxCKFZ1iv5tOpF0hMO
+         FUGRutw+zATcGuCuUEgAggF4rgkfr79oYlI3O65sX9prwv2vfmLF5ref+3r2GTsdtRdN
+         PuT7dWhmZwkvWSQO1H9M5ETj29u05wOiZcAesGhnULPuo7DEKaOtvYSC0cl09lhfRTyh
+         wrOrmFatO8pQfvcpTYA6RJBMvJC91uQRpn3qppgWoX783a69Nc3G5Zums2lOPEAno9No
+         HqsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :dkim-signature;
+        bh=H/oGdY2HPiZ/P0HqxiHije/q3VZTYP2QoEhwwNzPvCY=;
+        fh=uHMkSlnV/R28K5JKD7wbSWOAob/gxFHq9bmP6u9Mbtg=;
+        b=GbmPSdpvq5udzlbghMDX1S6sjnBgmaiOS2+YlWHvNQjGC0R8DW44DwZBcBde1y6mw0
+         bjoO1pMKHxYYbHJKvdDx8SFTFkwLI2w3YOHkuDijCAjCW2DrHpscHdU9pnIC8n25jDfs
+         +vFRP4YOIV7Ladl1t1BLVKG6D7Sp+G/XwY9w0EOZMRCk2hq6sZI09QcUPXhlkUbbwilQ
+         1E/EK7MSk8gfs6CeZg+LWVQlsBF9DuHd+7etEyaiAxLi7qL2wPE5x5wMeL/a7M247Fqv
+         S7l52sQLYtMM9EdhkLDYpnfE5vP0MR/A1cCfUbperZQfxAF1BmL9dyUPflola7VraFuN
+         d2fQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=BpKbCjK9;
+       spf=pass (google.com: domain of 3r5pbaagtadqde-hufboqssekdji.weewbu.sec@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3r5pBaAgTADQde-hUfboQSSekdji.WeeWbU.Sec@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@denisolt.com
+Return-Path: <3r5pBaAgTADQde-hUfboQSSekdji.WeeWbU.Sec@gaia.bounces.google.com>
+Received: from mail-sor-f73.google.com (mail-sor-f73.google.com. [209.85.220.73])
+        by mx.google.com with SMTPS id d9443c01a7336-235f45ff057sor7655025ad.4.2025.06.05.06.25.03
+        for <relyance-test@denisolt.com>
+        (Google Transport Security);
+        Thu, 05 Jun 2025 06:25:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3r5pbaagtadqde-hufboqssekdji.weewbu.sec@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=BpKbCjK9;
+       spf=pass (google.com: domain of 3r5pbaagtadqde-hufboqssekdji.weewbu.sec@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3r5pBaAgTADQde-hUfboQSSekdji.WeeWbU.Sec@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@denisolt.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=accounts.google.com; s=20230601; t=1749129903; x=1749734703; darn=denisolt.com;
+        h=to:from:subject:message-id:feedback-id:date:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H/oGdY2HPiZ/P0HqxiHije/q3VZTYP2QoEhwwNzPvCY=;
+        b=BpKbCjK9dVQVOC9piPBE7Kawir2BSu5VOPX2nA0yci3xnuTyToEhiLctC0fG0yWbXH
+         B4wTcgmcP+l63YV6BYtJe5uZQohtw/DjDK8nnG6Hy1LY8UwIA1gVOo8uQ2L0g96uleFo
+         J0wsxsl5TUVwWWbQIQka5GYboq9rn/0fN9/7q6mmZAHCUKeMD564cE630BDXV63V4XKP
+         Kp6xyiIhOGnbxiiRmfPs6O1Az4l8zIKN4diZI+ZSKvdNIj0Sd7fvpXGqTOioYKP46pPZ
+         YYn2GbmUDjh+Q0nvqGmcrFRQTP+gxBpn+nCOjCqEXq93XVKqsw+6onHBNcUitLByHcu6
+         UgjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749129903; x=1749734703;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=H/oGdY2HPiZ/P0HqxiHije/q3VZTYP2QoEhwwNzPvCY=;
+        b=o1+R/9I3n6kGzlRLPyjGUgit/DNOA0rqlrrrmZZEqZPTFukUYih5+tpkQtns7FVND7
+         /g27wRSx8/ibSNw+lALqbDkNQLHA/y0mpYtP76ULpj3iQI9L53u4Br+OlV8UZoeY7eLY
+         +KHoH3LmU384NDDebK1YMuUAff1RhyE+apYGJMh+cqdnXMF40lhHY5qLKFNhRvdR7isK
+         Ym/+6YpPbDQanS3YKTk2dDp8gZvF+F7r+OUH/RRYplF9aqlt0n+Z0oechbR45G6EW3kS
+         A/0hWqx0DipMXNzVHd5sxOGNGKKX54TidcJ5U6lCwspTeqY83z4+bn3r6awb6IWQaU7u
+         roXQ==
+X-Gm-Message-State: AOJu0Yzl9T7vqHYJjBi6h1VbZ6GoJYGS3M71oIpXnK50FLdYWcp+n+Me
+	/usyNusgVKdMrgdVH79HxLgBeInKyKZ+nYpL0SJQ2nEp1XfgxgQecNb4mu0M+lBQ2dphKsXhHb2
+	O5IkCY/Bjcn/Xpl/8hWsNdiUx9zW5x2ZowU1JX5utoA==
+X-Google-Smtp-Source: AGHT+IHet/AbFTzekhdMY7U6Snb4hZZ/LJn8otDly5TsPJ8A1wrNaBiCsstnbbZisVXpydm+RLc/RVSXUXopPwM6SUok1w==
+MIME-Version: 1.0
+X-Received: by 2002:a17:90b:3fc7:b0:311:b3e7:fb31 with SMTP id
+ 98e67ed59e1d1-3130cc284d3mr11150770a91.0.1749129903587; Thu, 05 Jun 2025
+ 06:25:03 -0700 (PDT)
+Date: Thu, 05 Jun 2025 13:25:03 GMT
+X-Account-Notification-Type: 325
+Feedback-ID: 325:account-notifier
+X-Notifications: 017c404ef56a0000
+X-Notifications-Bounce-Info: AWoTSIFy4RLnjGUdzrcuLp0hppyUuIeoir5Zaq_w1pfkNrqKwqH_Rfwv_wroIgmHShdliYWegLxHm5ytbfc64TyPQtp7luzCPzzYpNc6SG__PPxcIE8613uSr9PeiJsyE1VmPV4BJbCeAopBD1Xz36xeHR6Y3h3SkmHISv-3syVCvxMmNYckL625sMusaNLN9ljK2Smzr9_R_05XjWPXyKIr8wNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <56ZBeyzgvyx4M_VokM889g@notifications.google.com>
+Subject: Security alert
+From: Google <no-reply@accounts.google.com>
+To: relyance-test@denisolt.com
+Content-Type: multipart/alternative; boundary="00000000000091c1be0636d30a96"
+
+--00000000000091c1be0636d30a96
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+W2ltYWdlOiBHb29nbGVdDQpBIG5ldyBzaWduLWluIG9uIFdpbmRvd3MNCg0KDQpyZWx5YW5jZS10
+ZXN0QGRlbmlzb2x0LmNvbQ0KV2Ugbm90aWNlZCBhIG5ldyBzaWduLWluIHRvIHlvdXIgR29vZ2xl
+IEFjY291bnQgb24gYSBXaW5kb3dzIGRldmljZS4gSWYNCnRoaXMgd2FzIHlvdSwgeW91IGRvbuKA
+mXQgbmVlZCB0byBkbyBhbnl0aGluZy4gSWYgbm90LCB3ZeKAmWxsIGhlbHAgeW91IHNlY3VyZQ0K
+eW91ciBhY2NvdW50Lg0KQ2hlY2sgYWN0aXZpdHkNCjxodHRwczovL2FjY291bnRzLmdvb2dsZS5j
+b20vQWNjb3VudENob29zZXI/RW1haWw9cmVseWFuY2UtdGVzdEBkZW5pc29sdC5jb20mY29udGlu
+dWU9aHR0cHM6Ly9teWFjY291bnQuZ29vZ2xlLmNvbS9hbGVydC9udC8xNzQ5MTI5OTAzMDAzP3Jm
+biUzRDMyNSUyNnJmbmMlM0QxJTI2ZWlkJTNEMTE1NTE0NTgzOTI2MTM0NjA0OSUyNmV0JTNEMD4N
+CllvdSBjYW4gYWxzbyBzZWUgc2VjdXJpdHkgYWN0aXZpdHkgYXQNCmh0dHBzOi8vbXlhY2NvdW50
+Lmdvb2dsZS5jb20vbm90aWZpY2F0aW9ucw0KWW91IHJlY2VpdmVkIHRoaXMgZW1haWwgdG8gbGV0
+IHlvdSBrbm93IGFib3V0IGltcG9ydGFudCBjaGFuZ2VzIHRvIHlvdXINCkdvb2dsZSBBY2NvdW50
+IGFuZCBzZXJ2aWNlcy4NCsKpIDIwMjUgR29vZ2xlIExMQywgMTYwMCBBbXBoaXRoZWF0cmUgUGFy
+a3dheSwgTW91bnRhaW4gVmlldywgQ0EgOTQwNDMsIFVTQQ0K
+--00000000000091c1be0636d30a96
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en"><head><meta name=3D"format-detection" cont=
+ent=3D"email=3Dno"/><meta name=3D"format-detection" content=3D"date=3Dno"/>=
+<style nonce=3D"geogw0PZoKBOyYPJzYFkgg">.awl a {color: #FFFFFF; text-decora=
+tion: none;} .abml a {color: #000000; font-family: Roboto-Medium,Helvetica,=
+Arial,sans-serif; font-weight: bold; text-decoration: none;} .adgl a {color=
+: rgba(0, 0, 0, 0.87); text-decoration: none;} .afal a {color: #b0b0b0; tex=
+t-decoration: none;} @media screen and (min-width: 600px) {.v2sp {padding: =
+6px 30px 0px;} .v2rsp {padding: 0px 10px;}} @media screen and (min-width: 6=
+00px) {.mdv2rw {padding: 40px 40px;}} </style><link href=3D"//fonts.googlea=
+pis.com/css?family=3DGoogle+Sans" rel=3D"stylesheet" type=3D"text/css" nonc=
+e=3D"geogw0PZoKBOyYPJzYFkgg"/></head><body style=3D"margin: 0; padding: 0;"=
+ bgcolor=3D"#FFFFFF"><table width=3D"100%" height=3D"100%" style=3D"min-wid=
+th: 348px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" lang=3D"en"><t=
+r height=3D"32" style=3D"height: 32px;"><td></td></tr><tr align=3D"center">=
+<td><div itemscope itemtype=3D"//schema.org/EmailMessage"><div itemprop=3D"=
+action" itemscope itemtype=3D"//schema.org/ViewAction"><link itemprop=3D"ur=
+l" href=3D"https://accounts.google.com/AccountChooser?Email=3Drelyance-test=
+@denisolt.com&amp;continue=3Dhttps://myaccount.google.com/alert/nt/17491299=
+03003?rfn%3D325%26rfnc%3D1%26eid%3D1155145839261346049%26et%3D0"/><meta ite=
+mprop=3D"name" content=3D"Review Activity"/></div></div><table border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" style=3D"padding-bottom: 20px; max-wid=
+th: 516px; min-width: 220px;"><tr><td width=3D"8" style=3D"width: 8px;"></t=
+d><td><div style=3D"border-style: solid; border-width: thin; border-color:#=
+dadce0; border-radius: 8px; padding: 40px 20px;" align=3D"center" class=3D"=
+mdv2rw"><img src=3D"https://www.gstatic.com/images/branding/googlelogo/2x/g=
+ooglelogo_color_74x24dp.png" width=3D"74" height=3D"24" aria-hidden=3D"true=
+" style=3D"margin-bottom: 16px;" alt=3D"Google"><div style=3D"font-family: =
+&#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-=
+bottom: thin solid #dadce0; color: rgba(0,0,0,0.87); line-height: 32px; pad=
+ding-bottom: 24px;text-align: center; word-break: break-word;"><div style=
+=3D"font-size: 24px;">A new sign-in on Windows </div><table align=3D"center=
+" style=3D"margin-top:8px;"><tr style=3D"line-height: normal;"><td align=3D=
+"right" style=3D"padding-right:8px;"><img width=3D"20" height=3D"20" style=
+=3D"width: 20px; height: 20px; vertical-align: sub; border-radius: 50%;;" s=
+rc=3D"https://lh3.googleusercontent.com/a/ACg8ocKmo-AEUJGUv0MgIyk3tl8VhMYyT=
+5pfc2HbQ2ztQ4dnfpMe3Q=3Ds96-c" alt=3D""></td><td><a style=3D"font-family: &=
+#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;color: r=
+gba(0,0,0,0.87); font-size: 14px; line-height: 20px;">relyance-test@denisol=
+t.com</a></td></tr></table> </div><div style=3D"font-family: Roboto-Regular=
+,Helvetica,Arial,sans-serif; font-size: 14px; color: rgba(0,0,0,0.87); line=
+-height: 20px;padding-top: 20px; text-align: center;">We noticed a new sign=
+-in to your Google Account on a Windows device. If this was you, you don=E2=
+=80=99t need to do anything. If not, we=E2=80=99ll help you secure your acc=
+ount.<div style=3D"padding-top: 32px; text-align: center;"><a href=3D"https=
+://accounts.google.com/AccountChooser?Email=3Drelyance-test@denisolt.com&am=
+p;continue=3Dhttps://myaccount.google.com/alert/nt/1749129903003?rfn%3D325%=
+26rfnc%3D1%26eid%3D1155145839261346049%26et%3D0" target=3D"_blank" link-id=
+=3D"main-button-link" style=3D"font-family: &#39;Google Sans&#39;,Roboto,Ro=
+botoDraft,Helvetica,Arial,sans-serif; line-height: 16px; color: #ffffff; fo=
+nt-weight: 400; text-decoration: none;font-size: 14px;display:inline-block;=
+padding: 10px 24px;background-color: #4184F3; border-radius: 5px; min-width=
+: 90px;">Check activity</a></div></div><div style=3D"padding-top: 20px; fon=
+t-size: 12px; line-height: 16px; color: #5f6368; letter-spacing: 0.3px; tex=
+t-align: center">You can also see security activity at<br><a style=3D"color=
+: rgba(0, 0, 0, 0.87);text-decoration: inherit;">https://myaccount.google.c=
+om/notifications</a></div></div><div style=3D"text-align: left;"><div style=
+=3D"font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,=
+0,0.54); font-size: 11px; line-height: 18px; padding-top: 12px; text-align:=
+ center;"><div>You received this email to let you know about important chan=
+ges to your Google Account and services.</div><div style=3D"direction: ltr;=
+">&copy; 2025 Google LLC, <a class=3D"afal" style=3D"font-family: Roboto-Re=
+gular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 11px; =
+line-height: 18px; padding-top: 12px; text-align: center;">1600 Amphitheatr=
+e Parkway, Mountain View, CA 94043, USA</a></div></div></div></td><td width=
+=3D"8" style=3D"width: 8px;"></td></tr></table></td></tr><tr height=3D"32" =
+style=3D"height: 32px;"><td></td></tr></table></body></html>
+--00000000000091c1be0636d30a96--
+
+From 1834029065362414649-1749066459000 Wed Jun 04 07:47:39 2025
+MIME-Version: 1.0
+Date: Wed, 4 Jun 2025 16:47:39 -0300
+Message-ID: <CAN4j0GzFbiTZ3KWJoAEGAs9_MKTdf1TNi1G5T5Q=2ZLEFSMvuw@mail.gmail.com>
+Subject: Test
+From: arshit arora <relyance-test@denisolt.com>
+To: relyance-test@denisolt.com
+Content-Type: multipart/alternative; boundary="0000000000005e2d720636c442c0"
+
+--0000000000005e2d720636c442c0
+Content-Type: text/plain; charset="UTF-8"
+
+Test email hold
+
+--0000000000005e2d720636c442c0
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">Test email hold</div>
+
+--0000000000005e2d720636c442c0--
+
+From 1834028213061210226-1749065600000 Wed Jun 04 07:33:22 2025
+Delivered-To: relyance-test@denisolt.com
+Received: by 2002:aa7:c14b:0:b0:607:2b5:92ed with SMTP id r11csp460889edp;
+        Wed, 4 Jun 2025 12:33:22 -0700 (PDT)
+X-Received: by 2002:a17:90b:4f86:b0:311:c1ec:7cfd with SMTP id 98e67ed59e1d1-3130cd4d9famr4893436a91.26.1749065602481;
+        Wed, 04 Jun 2025 12:33:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749065602; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DyPfeGOAGITxXLsDtEdoEEHtqL2oG/zXKuBgoFsa30fzOK4jpnd6l8CAUpZh2js3OW
+         AWbGgNAoGgUCTcj25SnVLUIT+XxNAsNHDOzPFLVJJB9JB0bA71MsaMHHR8QeuT2NyjLL
+         iB3clBvogQQbaWuOzGT67lIc1o2DZqN8hXJQsyfx9AH+RIKrrlicqtoCiNV+safJZvju
+         QulWn2b2xlCMuUs8nTrYBm54V4nolTkPes3ctOv5Ptkl+hjciin4LTxjc9HqOn/W/PN+
+         jqWMfYM7Zu7qPPpijvbx/m5g6Ls2XKEJWiaA+jwtHN5o0kZP9RrlafNklNcwZxNCvzCL
+         vtdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :dkim-signature;
+        bh=am4RuAsYSjpzlPOrY3tNUucbXwu030qLhfmkTUsSHWY=;
+        fh=uHMkSlnV/R28K5JKD7wbSWOAob/gxFHq9bmP6u9Mbtg=;
+        b=NpdMCfCUj+3Oc1lhGiih+ySRKTcSf47JIzN3lUwTiGMwluD2mO6icO0edrY8Hivdna
+         EfHoe52dtSV75wriXofpLX0WlcG6nRBi0sa9+/cCfiqmoqqhSxAZ1RESAsLwx/fatGFX
+         U+Mo724DazAAqvwEp5ZdfFocu74kxoBg9nrGTWbYuY8Zcv5ilLGK2emlRdQztxvcDk8c
+         gHnYp7ZyxnIx/7OlgiteFXd3QT2P4g+4dvTmqt9IkSwOlDxUO6Y599rU6Wwzia9yMVGV
+         3rW7wDpk+vFLkIDgChZ1gWRAB+3sm00uPczh5/AC+gExqfDs625fnO9ibdkzJ8DX7ClJ
+         oJBg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=Uxiiimnm;
+       spf=pass (google.com: domain of 3gz9aaagtaawz0-3q1xamoo06z54.s00sxq.o0y@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3gZ9AaAgTAAwz0-3q1xAmoo06z54.s00sxq.o0y@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@denisolt.com
+Return-Path: <3gZ9AaAgTAAwz0-3q1xAmoo06z54.s00sxq.o0y@gaia.bounces.google.com>
+Received: from mail-sor-f73.google.com (mail-sor-f73.google.com. [209.85.220.73])
+        by mx.google.com with SMTPS id 98e67ed59e1d1-3124a22204asor8174444a91.5.2025.06.04.12.33.21
+        for <relyance-test@denisolt.com>
+        (Google Transport Security);
+        Wed, 04 Jun 2025 12:33:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3gz9aaagtaawz0-3q1xamoo06z54.s00sxq.o0y@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=Uxiiimnm;
+       spf=pass (google.com: domain of 3gz9aaagtaawz0-3q1xamoo06z54.s00sxq.o0y@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3gZ9AaAgTAAwz0-3q1xAmoo06z54.s00sxq.o0y@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@denisolt.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=accounts.google.com; s=20230601; t=1749065601; x=1749670401; darn=denisolt.com;
+        h=to:from:subject:message-id:feedback-id:date:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=am4RuAsYSjpzlPOrY3tNUucbXwu030qLhfmkTUsSHWY=;
+        b=Uxiiimnm/0l6dritTQ8/MrT8CPfHJ4iWO2KJHTBl1pNdV8IxjY9IFKgmBt2Qqw8ffs
+         hGn9z8DUAYFBbSiIkjPNUGEIx4dRN8995lh1QkpYoX6nhCa1X+lPE9wBd4jBk7PqNWGM
+         Hx60Zwik4NME+7iq3cYRueU+LBdpKxC5b1xXJTfcx5kht54L5tLjZxoUeiOrTlocu+U/
+         z03hzhTSnA9gVdpFd1/Di0/4S0mp1Vni6H0T5SwkPuhfsUodSs60XvaatRwK3kXbt2P0
+         zXAyLIhyQgHitytA3i5djWcwPxjkvm1db0Lg1AdduHD6Tmi1xkNIvX675JRnMtTuq4hi
+         5N4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749065601; x=1749670401;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=am4RuAsYSjpzlPOrY3tNUucbXwu030qLhfmkTUsSHWY=;
+        b=jZ5hK1le3pPFJWS+8Y2J0JVJEQZvzWwzj9d7S+aZwfu1pY9Q3p5t4mquh9INkx1io2
+         TNp/D4JRzQmWvdvjmiZAoVH/7hQtZjvvRIQiIdeocVDWQBMyW5+gNS3y/XWaRAOwZhUv
+         6TdKazoLkmA+z/g6ap3n5Cef8I4Hoxm5ZMQi4w7Z0vmPAXlBZ4xzLvl9uLjt4uS0QhpG
+         R/05bWv1Nnta5AH23PtfIH4aD5qIy3jYh4QXrqGypiNpZCdZ6dloqT8zWU9NeeqAyxxn
+         q4xHEzBSOeJpd+HUk4noY3Z/4cu7EKe1vNYmi4ngtIHWkcdu/4kHxzvkZ3NtbGd6gueL
+         x2vA==
+X-Gm-Message-State: AOJu0Yx1lWwHakqY5pptIL1qEHRqWvDAeHHppd5gJ/8JfH7H2jJxwzRB
+	1arq4orXve2rmStRybm3lWUdiXPZXNVoGfzuL4fdkpuxBniWHkW/yqVSewk/wkHdBPVPoakvRoZ
+	zrH8L6UmI6/zHYVnB7yJEHsaFc4vzJEVMFWwfcMCHTw==
+X-Google-Smtp-Source: AGHT+IEJ7IhsTX7PnpMgs/5ypu8lMsPoYG6w3zo3o77Bq0TybR8vgaWsRKfyJHDYrsZVgPd0xDsnXVaZuulCOils0wLWdw==
+MIME-Version: 1.0
+X-Received: by 2002:a17:90b:268c:b0:313:2206:adf1 with SMTP id
+ 98e67ed59e1d1-3132206b113mr3033865a91.4.1749065601657; Wed, 04 Jun 2025
+ 12:33:21 -0700 (PDT)
+Date: Wed, 04 Jun 2025 19:33:20 GMT
+X-Account-Notification-Type: 325
+Feedback-ID: 325:account-notifier
+X-Notifications: d664862b8bca0000
+X-Notifications-Bounce-Info: AWoTSIE-7wYbN0HRBNYiahJoDYBdM2LV_qKdTVFMq4cfg80RizQAKKq7Q2uFK8tx6Kvgsz2FjGbiFC7w5qk4YQxTbZgqgzcEmzTIoGdTBoLUJiOQQAN_KuywLB2063XFbxVHjSb2vPaxSjeqMzOTbxTNKtYYw8I8radbnDsDNjrxEFR-Hfykv-RP4lJDEzHCxqinmHcpZ8bTomO2YbiYaZOMgQNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <0vOc013xd7alyTdrsAwBxA@notifications.google.com>
+Subject: Security alert
+From: Google <no-reply@accounts.google.com>
+To: relyance-test@denisolt.com
+Content-Type: multipart/alternative; boundary="000000000000e02b900636c41187"
+
+--000000000000e02b900636c41187
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+W2ltYWdlOiBHb29nbGVdDQpBIG5ldyBzaWduLWluIG9uIFdpbmRvd3MNCg0KDQpyZWx5YW5jZS10
+ZXN0QGRlbmlzb2x0LmNvbQ0KV2Ugbm90aWNlZCBhIG5ldyBzaWduLWluIHRvIHlvdXIgR29vZ2xl
+IEFjY291bnQgb24gYSBXaW5kb3dzIGRldmljZS4gSWYNCnRoaXMgd2FzIHlvdSwgeW91IGRvbuKA
+mXQgbmVlZCB0byBkbyBhbnl0aGluZy4gSWYgbm90LCB3ZeKAmWxsIGhlbHAgeW91IHNlY3VyZQ0K
+eW91ciBhY2NvdW50Lg0KQ2hlY2sgYWN0aXZpdHkNCjxodHRwczovL2FjY291bnRzLmdvb2dsZS5j
+b20vQWNjb3VudENob29zZXI/RW1haWw9cmVseWFuY2UtdGVzdEBkZW5pc29sdC5jb20mY29udGlu
+dWU9aHR0cHM6Ly9teWFjY291bnQuZ29vZ2xlLmNvbS9hbGVydC9udC8xNzQ5MDY1NjAwNTc3P3Jm
+biUzRDMyNSUyNnJmbmMlM0QxJTI2ZWlkJTNELTkxMDcyNTMxMDY1ODAwMTU4NDIlMjZldCUzRDA+
+DQpZb3UgY2FuIGFsc28gc2VlIHNlY3VyaXR5IGFjdGl2aXR5IGF0DQpodHRwczovL215YWNjb3Vu
+dC5nb29nbGUuY29tL25vdGlmaWNhdGlvbnMNCllvdSByZWNlaXZlZCB0aGlzIGVtYWlsIHRvIGxl
+dCB5b3Uga25vdyBhYm91dCBpbXBvcnRhbnQgY2hhbmdlcyB0byB5b3VyDQpHb29nbGUgQWNjb3Vu
+dCBhbmQgc2VydmljZXMuDQrCqSAyMDI1IEdvb2dsZSBMTEMsIDE2MDAgQW1waGl0aGVhdHJlIFBh
+cmt3YXksIE1vdW50YWluIFZpZXcsIENBIDk0MDQzLCBVU0ENCg==
+--000000000000e02b900636c41187
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en"><head><meta name=3D"format-detection" cont=
+ent=3D"email=3Dno"/><meta name=3D"format-detection" content=3D"date=3Dno"/>=
+<style nonce=3D"s7RS4VCZC7Qo_8g72uGM0w">.awl a {color: #FFFFFF; text-decora=
+tion: none;} .abml a {color: #000000; font-family: Roboto-Medium,Helvetica,=
+Arial,sans-serif; font-weight: bold; text-decoration: none;} .adgl a {color=
+: rgba(0, 0, 0, 0.87); text-decoration: none;} .afal a {color: #b0b0b0; tex=
+t-decoration: none;} @media screen and (min-width: 600px) {.v2sp {padding: =
+6px 30px 0px;} .v2rsp {padding: 0px 10px;}} @media screen and (min-width: 6=
+00px) {.mdv2rw {padding: 40px 40px;}} </style><link href=3D"//fonts.googlea=
+pis.com/css?family=3DGoogle+Sans" rel=3D"stylesheet" type=3D"text/css" nonc=
+e=3D"s7RS4VCZC7Qo_8g72uGM0w"/></head><body style=3D"margin: 0; padding: 0;"=
+ bgcolor=3D"#FFFFFF"><table width=3D"100%" height=3D"100%" style=3D"min-wid=
+th: 348px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" lang=3D"en"><t=
+r height=3D"32" style=3D"height: 32px;"><td></td></tr><tr align=3D"center">=
+<td><div itemscope itemtype=3D"//schema.org/EmailMessage"><div itemprop=3D"=
+action" itemscope itemtype=3D"//schema.org/ViewAction"><link itemprop=3D"ur=
+l" href=3D"https://accounts.google.com/AccountChooser?Email=3Drelyance-test=
+@denisolt.com&amp;continue=3Dhttps://myaccount.google.com/alert/nt/17490656=
+00577?rfn%3D325%26rfnc%3D1%26eid%3D-9107253106580015842%26et%3D0"/><meta it=
+emprop=3D"name" content=3D"Review Activity"/></div></div><table border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" style=3D"padding-bottom: 20px; max-wi=
+dth: 516px; min-width: 220px;"><tr><td width=3D"8" style=3D"width: 8px;"></=
+td><td><div style=3D"border-style: solid; border-width: thin; border-color:=
+#dadce0; border-radius: 8px; padding: 40px 20px;" align=3D"center" class=3D=
+"mdv2rw"><img src=3D"https://www.gstatic.com/images/branding/googlelogo/2x/=
+googlelogo_color_74x24dp.png" width=3D"74" height=3D"24" aria-hidden=3D"tru=
+e" style=3D"margin-bottom: 16px;" alt=3D"Google"><div style=3D"font-family:=
+ &#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border=
+-bottom: thin solid #dadce0; color: rgba(0,0,0,0.87); line-height: 32px; pa=
+dding-bottom: 24px;text-align: center; word-break: break-word;"><div style=
+=3D"font-size: 24px;">A new sign-in on Windows </div><table align=3D"center=
+" style=3D"margin-top:8px;"><tr style=3D"line-height: normal;"><td align=3D=
+"right" style=3D"padding-right:8px;"><img width=3D"20" height=3D"20" style=
+=3D"width: 20px; height: 20px; vertical-align: sub; border-radius: 50%;;" s=
+rc=3D"https://lh3.googleusercontent.com/a/ACg8ocKmo-AEUJGUv0MgIyk3tl8VhMYyT=
+5pfc2HbQ2ztQ4dnfpMe3Q=3Ds96-c" alt=3D""></td><td><a style=3D"font-family: &=
+#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;color: r=
+gba(0,0,0,0.87); font-size: 14px; line-height: 20px;">relyance-test@denisol=
+t.com</a></td></tr></table> </div><div style=3D"font-family: Roboto-Regular=
+,Helvetica,Arial,sans-serif; font-size: 14px; color: rgba(0,0,0,0.87); line=
+-height: 20px;padding-top: 20px; text-align: center;">We noticed a new sign=
+-in to your Google Account on a Windows device. If this was you, you don=E2=
+=80=99t need to do anything. If not, we=E2=80=99ll help you secure your acc=
+ount.<div style=3D"padding-top: 32px; text-align: center;"><a href=3D"https=
+://accounts.google.com/AccountChooser?Email=3Drelyance-test@denisolt.com&am=
+p;continue=3Dhttps://myaccount.google.com/alert/nt/1749065600577?rfn%3D325%=
+26rfnc%3D1%26eid%3D-9107253106580015842%26et%3D0" target=3D"_blank" link-id=
+=3D"main-button-link" style=3D"font-family: &#39;Google Sans&#39;,Roboto,Ro=
+botoDraft,Helvetica,Arial,sans-serif; line-height: 16px; color: #ffffff; fo=
+nt-weight: 400; text-decoration: none;font-size: 14px;display:inline-block;=
+padding: 10px 24px;background-color: #4184F3; border-radius: 5px; min-width=
+: 90px;">Check activity</a></div></div><div style=3D"padding-top: 20px; fon=
+t-size: 12px; line-height: 16px; color: #5f6368; letter-spacing: 0.3px; tex=
+t-align: center">You can also see security activity at<br><a style=3D"color=
+: rgba(0, 0, 0, 0.87);text-decoration: inherit;">https://myaccount.google.c=
+om/notifications</a></div></div><div style=3D"text-align: left;"><div style=
+=3D"font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,=
+0,0.54); font-size: 11px; line-height: 18px; padding-top: 12px; text-align:=
+ center;"><div>You received this email to let you know about important chan=
+ges to your Google Account and services.</div><div style=3D"direction: ltr;=
+">&copy; 2025 Google LLC, <a class=3D"afal" style=3D"font-family: Roboto-Re=
+gular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 11px; =
+line-height: 18px; padding-top: 12px; text-align: center;">1600 Amphitheatr=
+e Parkway, Mountain View, CA 94043, USA</a></div></div></div></td><td width=
+=3D"8" style=3D"width: 8px;"></td></tr></table></td></tr><tr height=3D"32" =
+style=3D"height: 32px;"><td></td></tr></table></body></html>
+--000000000000e02b900636c41187--
+
+From 1834022438752882826-1749060095000 Wed Jun 04 06:01:35 2025
+Delivered-To: relyance-test@denisolt.com
+Received: by 2002:aa7:c14b:0:b0:607:2b5:92ed with SMTP id r11csp413320edp;
+        Wed, 4 Jun 2025 11:01:35 -0700 (PDT)
+X-Received: by 2002:a05:6e02:3a05:b0:3dd:b5fd:aafd with SMTP id e9e14a558f8ab-3ddbed5c81amr46649335ab.2.1749060095646;
+        Wed, 04 Jun 2025 11:01:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749060095; cv=none;
+        d=google.com; s=arc-20240605;
+        b=di/PFGnmNYlFp48CowP1sCcbaofAPXND5UmfSmS+Iuvd7mPbXrJhvSSQDtkXTHFpOc
+         aFsi9MDsy4NS5MxXGJAcd2jNfuYQKtHl4Du0oK/RC+XpbJwMkRV1CsQ31WVX9YvT5wQP
+         a/YerOEzEySk10IlmrodiPPJ5seH0cRilFBjwZInaXXoHiP9q22kZuUCylboSKN03NET
+         Q/CIWurFrmAckA1clmhBCrWie0BiDcKiv1DVsyuZF4QGWXEUWfS580/rRg60aTjdbhIn
+         0oOPhlbQjKIBH3v1FpLi9H9dYYiwBfHfmHG5luO04ncSDrwDrMuc9j2hHn8AjctjvXCF
+         4xrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :dkim-signature;
+        bh=oo0oobzGav/EppJzp5ZP24W5qk4nTOkHpcRygDMO8p0=;
+        fh=uHMkSlnV/R28K5JKD7wbSWOAob/gxFHq9bmP6u9Mbtg=;
+        b=Gtgmsv3F7IE8aRaON7Kz6LrSi6P+pb5OyQTmJwAns9j9tFDsaiTd/EUIhu+J186jqI
+         Opck8WJnCeA9FVUvqJwvlSEjWpDBKnf8VWhbij2ddiY8E9+yIa5VQkglwL1DLsYoZO6b
+         JMKv1u80Eyfh/b9Zj18wybtWf6G7LVvkLjqCTs25cRkHbDaOLZXa6YG2SQ+Iv8xwqyLB
+         d2G9IzBm4tyPr8kIcWH7cCFKdGRAvz6x9dJFWbUuusjkMct6MLvOJllLDSYNqT4s6oO5
+         wVy2O8Jr0R14w9BwemOAIS6KHX7af4O5/HjasgxKgopLtigBO7kvV4VPhd0C3Z+2KiKs
+         AAnA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=tUaFVOQc;
+       spf=pass (google.com: domain of 3_4laabekaf4skngol68a-jknalhuckkcha.8ki@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3_4lAaBEKAF4SKNGOL68A-JKNALHUCKKCHA.8KI@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@denisolt.com
+Return-Path: <3_4lAaBEKAF4SKNGOL68A-JKNALHUCKKCHA.8KI@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 8926c6da1cb9f-4fdda8224f2sor5472493173.5.2025.06.04.11.01.35
+        for <relyance-test@denisolt.com>
+        (Google Transport Security);
+        Wed, 04 Jun 2025 11:01:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3_4laabekaf4skngol68a-jknalhuckkcha.8ki@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=tUaFVOQc;
+       spf=pass (google.com: domain of 3_4laabekaf4skngol68a-jknalhuckkcha.8ki@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3_4lAaBEKAF4SKNGOL68A-JKNALHUCKKCHA.8KI@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@denisolt.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1749060095; x=1749664895; darn=denisolt.com;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oo0oobzGav/EppJzp5ZP24W5qk4nTOkHpcRygDMO8p0=;
+        b=tUaFVOQcP+NRJxKCa0yq1xyjsASfQXH58KFRDCfszhET4Hk58GAPDluHo15fqfK6i1
+         Z//Cl3un+i0uLzfWYFP8DFF9a/E2OOEqCEM7VCIgjInNVA3AYMhY6yV3Hoakika9bdYb
+         y/hzRKLQMTZzg9jnRpGqzJ2PeThyd9gT3vwjZAfD2p3k6UeRpzfUnr9wj5GZktZ0MdQC
+         QU8Fj6FJ8ym6cUTBwm05Gv1JUFfXzydfuCbKX29h6ismtcV4AhEqfcdSydXWqs4hEY7G
+         Df3Ee+XnAiYzh4VnSXv0rWBW8i9fO0oNxl85wX4BekDuYMpGXRULrlMdm9T96ReO6kwp
+         sSgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749060095; x=1749664895;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oo0oobzGav/EppJzp5ZP24W5qk4nTOkHpcRygDMO8p0=;
+        b=KcxhAa33nigHqANAv7x2HCEUk33ZhXi4VoXroLs3ndRYkl5sudkkQWCwvtC3U/0nV8
+         r4q7y4hglNmE73oe9ESVJ/yS35xVe84XaiAiOxwrJijI2+ZiYrnI/nURXZZqUIbpe523
+         6Qu5IEw7KHXuk1M8hdMlV5f6q/xpRp9VVGMnRjgFFN/+1djKs32ukgEp/L59hqypwnnC
+         wt9Ter8pkmSRE5MQeKBG6UU/SK5GmGHq+Hpla1V8c+cdcT6g+HqtgOQfLeXxm8ICNehW
+         P/BGS631IG8uUvuKHXh8UsuI4XjzmJxhhmcv6rvLfk4bbUBu6tLWVrch49TcOLpFpHyQ
+         fhOA==
+X-Gm-Message-State: AOJu0YyVjUWC6QHODKgQRcFBKL1Iuftj7cWklX9gwDkxgekurcsaVWPx
+	AUQ79NoaMmVETKzpPrH797kH8DEu5hJv3e948D0i+B0357cPrqk=
+X-Google-Smtp-Source: AGHT+IEBuI4BN4aAsWstm7oAWa9bON5eJST4fRLnbXpJm4rAEbodiEUVFx0oOT0Mo+KDlFmgVjRs3a0=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6602:c85:b0:86a:84f:7a45 with SMTP id
+ ca18e2360f4ac-8731c5ea807mr471822839f.8.1749060095219; Wed, 04 Jun 2025
+ 11:01:35 -0700 (PDT)
+Date: Wed, 04 Jun 2025 11:01:35 -0700
+Reply-To: =?UTF-8?Q?The_Google_Workspace_Team=C2=A0?= <workspace-noreply@google.com>
+X-Google-Id: 264532
+Feedback-ID: P-10-0:C20076135:M110172494-en:gamma
+X-Notifications: ffb50ccc856a0000
+X-Notifications-Bounce-Info: AWoTSIGpMFl4gurKRysRnjyVDLDmy-m70Mn3fs027ju5UvF2bmlmuvCMZzAVU_-3ZM0H6NB2d-0Xk3ccAbTzY0Eo2Xple_k81iwTfQ_RFjFvXNbzpXc35JRstavrL0YP0SZVzXtj4UorzAwhljw0HBpMIQyR6I4MuXxZo3SZVlBniYOHeR2PItonTRbmFWems8mfhNqrb6cM5xVsZd6QiaNvLBs8PfqgZJrSNfdA6ic9Y9hqC-_NvuAQX68F6vCG4Tu03iO95mh-Vd7jV1Bc3MH0g4Kl8FycZKr5qo8A9xt5odRAoM7c15fTU1sc3nsZ7XdEqiC4HBHjlFOYrYTKPL1XvnG0c6rqOWl-fB1I8mAAAeoPpTBIosFxBZy8Gz7VAfT6moVaCNI1gIr0Habsg1MZHBnNiAKqe5eD0uImbvefbbmZHkcwaa-3xLtkrr8fC4f8hSjKRyXtMlaEQQQzVdTdW5MhoOl0mID4IOojWK0v-Zilsh6XHwNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <7aeaf504aa685d199b677bcca43386fdd8e09060-20076135-110434884@google.com>
+Subject: Welcome to Google Vault for denisolt.com
+From: =?UTF-8?Q?The_Google_Workspace_Team=C2=A0?= <workspace-noreply@google.com>
+To: relyance-test@denisolt.com
+Content-Type: multipart/alternative; boundary="000000000000aa98570636c2c979"
+
+--000000000000aa98570636c2c979
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+From: "The Google Workspace Team" [workspace-noreply@google.com]
+Subject:  Welcome to Google Vault for denisolt.com
+
+Vault welcome and set up
+
+## Get started with Google Vault
+
+Welcome to Google Vault for denisolt.com. We're excited to provide you with  
+a powerful archiving, retention, and eDiscovery solution for Google  
+Workspace.
+
+### Set up Vault
+
+Vault won't retain data according to your organization's policies and legal  
+requirements until you complete the setup. Use the Get Started: Vault  
+administrator guide  
+(https://support.google.com/vault/answer/2584132?utm_source=9172901&utm_medium=email)  
+to set up Vault.
+
+### Questions?
+
+Visit the Vault Help Center  
+(http://support.google.com/vault?utm_source=9172901&utm_medium=email) for  
+more information. You can also contact the support team  
+(https://support.google.com/a/answer/1047213?utm_source=9172901&utm_medium=email)  
+by phone, chat, or email.
+
+Sincerely,
+
+The Google Workspace Team
+
+
+(C) 2025  Google LLC 1600 Amphitheatre Parkway, Mountain View, CA 94043 *   
+Google Asia Pacific Pte. Ltd., 8 Marina View, #30-01, Asia Square 1,  
+Singapore 018960  *  Google Ireland Ltd, Gordon House, Barrow Street,  
+Dublin 4, Ireland.
+
+You're receiving this mandatory email service announcement to update you  
+about important changes to your Google Workspace product or account.
+
+
+--000000000000aa98570636c2c979
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div>
+  <html xmlns:v=3Durn:schemas-microsoft-com:vml dir=3Dltr lang=3Den style=
+=3D"margin:0; padding:0">
+    <meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+    <meta name=3Dviewport content=3Dwidth=3Ddevice-width>
+    <style>@media only screen{html{min-height:100%;background:#fafafa}}@med=
+ia only screen and (max-width:640px){.small-float-center{margin:0 auto!impo=
+rtant;float:none!important;text-align:center!important}}@media only screen =
+and (max-width:640px){table.body img{width:auto;height:auto}table.body cent=
+er{min-width:0!important}table.body .container{width:344px!important}table.=
+body .columns{height:auto!important;-moz-box-sizing:border-box;-webkit-box-=
+sizing:border-box;box-sizing:border-box;padding-left:40px!important;padding=
+-right:40px!important}table.body .columns .columns{padding-left:0!important=
+;padding-right:0!important}table.body .collapse .columns{padding-left:0!imp=
+ortant;padding-right:0!important}th.small-1{display:inline-block!important;=
+width:8.33333%!important}th.small-3{display:inline-block!important;width:25=
+%!important}th.small-4{display:inline-block!important;width:33.33333%!impor=
+tant}th.small-6{display:inline-block!important;width:50%!important}th.small=
+-8{display:inline-block!important;width:66.66667%!important}th.small-9{disp=
+lay:inline-block!important;width:75%!important}th.small-12{display:inline-b=
+lock!important;width:100%!important}.columns th.small-12{display:block!impo=
+rtant;width:100%!important}table.menu{width:100%!important}table.menu td,ta=
+ble.menu th{width:auto!important;display:inline-block!important}table.menu.=
+vertical td,table.menu.vertical th{display:block!important}table.menu[align=
+=3Dcenter]{width:auto!important}}</style>
+    <span class=3Dpreheader style=3Dcolor:#fafafa;display:none!important;fo=
+nt-size:1px;line-height:1px;max-height:0;max-width:0;mso-hide:all!important=
+;opacity:0;overflow:hidden;visibility:hidden></span>
+    <table class=3Dbody style=3DMargin:0;background:#F8F9FA!important;borde=
+r-collapse:collapse;border-spacing:0;color:#3C4043;font-family:Roboto,Helve=
+tica,Arial,sans-serif;font-size:14px;font-weight:400;height:100%;line-heigh=
+t:inherit;margin:0;padding:0;vertical-align:top;width:100%;text-align:left>
+      <tr style=3Dpadding:0;vertical-align:top>
+        <td class=3Dcenter align=3Dcenter valign=3Dtop style=3D-moz-hyphens=
+:none;-webkit-hyphens:none;Margin:0;border-collapse:collapse!important;colo=
+r:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;font=
+-weight:400;hyphens:none;line-height:inherit;margin:0;padding:0;vertical-al=
+ign:top;word-wrap:keep-all>
+          <center data-parsed=3D"" style=3Dmin-width:600px;width:100%>
+
+            <table align=3Dcenter class=3D"container float-center" style=3D=
+"Margin:0 auto;background:#fafafa;border-collapse:collapse;border-spacing:0=
+;float:none;margin:0 auto;padding:0;text-align:left;vertical-align:top;widt=
+h:600px"><tbody><tr style=3Dpadding:0;vertical-align:top><td style=3D-moz-h=
+yphens:none;-webkit-hyphens:none;Margin:0;border-collapse:collapse!importan=
+t;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14p=
+x;font-weight:400;hyphens:none;line-height:inherit;margin:0;padding:0;verti=
+cal-align:top;word-wrap:keep-all>
+              <table class=3D"row header" style=3Dbackground:#F8F9FA;border=
+-collapse:collapse;border-spacing:0;display:table;font-size:12px;padding:0;=
+position:relative;vertical-align:top;width:100%><tbody><tr style=3Dpadding:=
+0;vertical-align:top>
+                <th class=3D"small-12 large-12 columns first last" style=3D=
+"Margin:0 auto;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;=
+font-size:14px;font-weight:400;line-height:inherit;margin:0 auto;padding:0;=
+padding-bottom:24px;padding-left:40px;padding-right:40px;padding-top:12px;w=
+idth:560px"><table style=3Dborder-collapse:collapse;border-spacing:0;margin=
+-bottom:0;padding:0;vertical-align:top;width:100%><tr style=3Dpadding:0;ver=
+tical-align:top><th style=3DMargin:0;color:#3C4043;font-family:Roboto,Helve=
+tica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:inherit;ma=
+rgin:0;padding:0;text-align:left>
+
+                  <img src=3Dhttps://storage.googleapis.com/support-kms-pro=
+d/GaOvClLdIVxiDUB6sr9FETwxw9I7ykkXR856 alt=3D"Google Workspace" height=3D30=
+ style=3D-ms-interpolation-mode:bicubic;clear:both;display:block;margin-top=
+:24px;max-height:30px;max-width:100%;outline:0;text-decoration:none;width:a=
+uto>
+
+                </th>
+<th class=3Dexpander style=3DMargin:0;color:#3C4043;font-family:Roboto,Helv=
+etica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:inherit;m=
+argin:0;padding:0!important;visibility:hidden;width:0></th></tr></table></t=
+h>
+              </tr></tbody></table>
+
+              <table class=3D"row info" style=3Dalign-items:center;backgrou=
+nd:#fff;border-collapse:collapse;border-color:#E8EAED;border-spacing:0;bord=
+er-style:solid;border-width:1px;display:table;padding:0;position:relative;v=
+ertical-align:top;width:100%><tbody><tr style=3Dpadding:0;vertical-align:to=
+p>
+                <th class=3D"small-12 large-12 columns first last" style=3D=
+"Margin:0 auto;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;=
+font-size:14px;font-weight:400;line-height:inherit;margin:0 auto;padding:0;=
+padding-bottom:0;padding-left:40px;padding-right:40px;width:560px"><table s=
+tyle=3Dborder-collapse:collapse;border-spacing:0;padding:0;vertical-align:t=
+op;width:100%><tr style=3Dpadding:0;vertical-align:top><th style=3D"Margin:=
+0;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14p=
+x;font-weight:400;line-height:inherit;margin:0;padding:0 0 24px;text-align:=
+left">
+
+<title>Vault welcome and set up </title>
+<h2 style=3D"Margin:0;Margin-bottom:8px;color:#3C4043;font-family:Google Sa=
+ns,Helvetica,Arial,sans-serif;font-size:24px;font-weight:700;line-height:30=
+px!important;margin:0;margin-bottom:24px;margin-top:24px;padding:0;word-wra=
+p:normal">Get started with Google Vault</h2>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>Welcome to Google Vault for <a class=3Dn=
+oclick style=3DMargin:0;color:inherit;font-family:inherit;font-weight:inher=
+it;line-height:inherit;margin:0;margin-bottom:inherit;margin-top:inherit;pa=
+dding:0;text-decoration:none>denisolt.com</a>. We're excited to provide you=
+ with a powerful archiving, retention, and eDiscovery solution for Google W=
+orkspace.</p>
+
+<h3 style=3D"Margin:0;Margin-bottom:8px;color:#3C4043;font-family:Google Sa=
+ns,Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;line-height:26=
+px!important;margin:0;margin-bottom:12px;margin-top:20px;padding:0;word-wra=
+p:normal">Set up Vault</h3>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>Vault won't retain data according to you=
+r organization's policies and legal requirements until you complete the set=
+up. Use the <a href=3Dhttps://support.google.com/vault/answer/2584132?utm_s=
+ource=3D9172901&amp;utm_medium=3Demail style=3DMargin:0;color:#1A73E8;font-=
+family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:24px;m=
+argin:0;padding:0;text-decoration:none>Get Started: Vault administrator gui=
+de</a> to set up Vault.</p>
+
+<h3 style=3D"Margin:0;Margin-bottom:8px;color:#3C4043;font-family:Google Sa=
+ns,Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;line-height:26=
+px!important;margin:0;margin-bottom:12px;margin-top:20px;padding:0;word-wra=
+p:normal">Questions?</h3>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>Visit the <a href=3Dhttp://support.googl=
+e.com/vault?utm_source=3D9172901&amp;utm_medium=3Demail style=3DMargin:0;co=
+lor:#1A73E8;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;l=
+ine-height:24px;margin:0;padding:0;text-decoration:none>Vault Help Center</=
+a> for more information. You can also <a href=3Dhttps://support.google.com/=
+a/answer/1047213?utm_source=3D9172901&amp;utm_medium=3Demail style=3DMargin=
+:0;color:#1A73E8;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:=
+400;line-height:24px;margin:0;padding:0;text-decoration:none>contact the su=
+pport team</a> by phone, chat, or email.</p>
+
+<p class=3Dsignoff style=3D"Margin:0;Margin-bottom:16px;color:#3C4043;font-=
+family:Google Sans,Helvetica,Arial,sans-serif;font-size:14px;font-weight:70=
+0;line-height:24px;margin:0;margin-bottom:0!important;margin-top:8px;paddin=
+g:0">Sincerely,</p>
+
+<p class=3Dsignoff style=3D"Margin:0;Margin-bottom:16px;color:#3C4043;font-=
+family:Google Sans,Helvetica,Arial,sans-serif;font-size:14px;font-weight:70=
+0;line-height:24px;margin:0;margin-bottom:0!important;margin-top:0;padding:=
+0">The Google Workspace Team</p>
+            </th></tr></table></th>
+            </tr></tbody></table>
+
+            <table class=3D"row footer" role=3Dpresentation style=3Dbackgro=
+und:#F8F9FA;border-collapse:collapse;border-spacing:0;display:table;margin-=
+top:0;padding:0;position:relative;vertical-align:top;width:100%><tbody><tr =
+style=3Dpadding:0;vertical-align:top>
+              <th class=3D"small-12 large-12 columns first last" style=3D"M=
+argin:0 auto;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;fo=
+nt-size:14px;font-weight:400;line-height:inherit;margin:0 auto;padding:0;pa=
+dding-bottom:0;padding-left:40px;padding-right:40px;width:560px"><table sty=
+le=3Dborder-collapse:collapse;border-spacing:0;padding:0;vertical-align:top=
+;width:100%><tr style=3Dpadding:0;vertical-align:top><th style=3DMargin:0;c=
+olor:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;f=
+ont-weight:400;line-height:inherit;margin:0;padding:24px;text-align:left>
+
+                <img src=3Dhttps://storage.googleapis.com/support-kms-prod/=
+GaOvClLdIVxiDUB6sr9FETwxw9I7ykkXR856 alt=3D"Google Workspace" height=3D30 s=
+tyle=3D-ms-interpolation-mode:bicubic;clear:both;display:block;margin-botto=
+m:14px;max-width:100%;max-height:30px;outline:0;text-decoration:none;width:=
+auto>
+                <p style=3DMargin:0;Margin-bottom:16px;color:#6C737F;font-f=
+amily:Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line=
+-height:16px;margin:0;margin-bottom:14px;padding:0>
+            =C2=A9 2025  Google LLC&nbsp;1600 Amphitheatre Parkway, Mountai=
+n View, CA 94043
+                </p>
+                <p style=3DMargin:0;Margin-bottom:16px;color:#6C737F;font-f=
+amily:Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line=
+-height:16px;margin:0;margin-bottom:14px;padding:0>
+            <em>You=E2=80=99re receiving this mandatory email service annou=
+ncement to update you about important changes to your Google Workspace prod=
+uct or account.</em>
+            </p>
+            </th>
+<th class=3Dexpander style=3DMargin:0;color:#3C4043;font-family:Roboto,Helv=
+etica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:inherit;m=
+argin:0;padding:0!important;visibility:hidden;width:0></th></tr></table></t=
+h>
+            </tr></tbody></table>
+            </td></tr></tbody></table>
+
+          </center>
+        </td>
+      </tr>
+    </table>
+    <!-- prevent Gmail on iOS font size manipulation -->
+   <div style=3D"display:none;white-space:nowrap;font:15px courier;line-hei=
+ght:0"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+
+</html>
+</div>
+
+--000000000000aa98570636c2c979--
+

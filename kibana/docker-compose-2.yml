@@ -1,0 +1,37 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.2 # 7.16.1
+    volumes:
+      - "./esdata:/usr/share/elasticsearch/data"
+    environment:
+      discovery.type: "single-node"
+      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+      xpack.security.enabled: "true"
+      ELASTIC_PASSWORD: "changeme"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.17.2 # 7.16.1
+    ports:
+      - "5601:5601"
+    environment:
+      KIBANA_XPACK_SECURITY_ENCRYPTIONKEY: "743787217A45432B462D4A614EF35266"
+      xpack.encryptedSavedObjects.encryptionKey: "123456789123456789123456789123456"
+      XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY: "743787217A45432B462D4A614EF35266"
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_PASSWORD: "changeme"
+
+    depends_on:
+      - elasticsearch
+    
+        #volumes:
+        #  elasticsearch_data:
+        #    driver: local
+        #  kibana_data:
+        #    driver: local
+
+networks:
+  default:
+    external: true
+    name: relyance

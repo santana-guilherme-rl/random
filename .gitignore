@@ -1,0 +1,4 @@
+.venv/*
+venv
+**/pg_data
+**/mariadb_data

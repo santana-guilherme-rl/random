@@ -1,0 +1,207 @@
+{
+  "workers": [
+    {
+      "associateOID": "S8A76F9SIDFY987S",
+      "businessCommunication": {
+        "emails": [
+          {
+            "emailUri": "ushac@work.com"
+          }
+        ],
+        "landlines": [
+          {
+            "dialNumber": "1234512345",
+            "extension": "1632",
+            "formattedNumber": "1234512345"
+          }
+        ]
+      },
+      "customFieldGroup": {
+        "codeFields": [
+          {
+            "codeValue": "abc",
+            "nameCode": {
+              "shortName": "Clock ID"
+            }
+          }
+        ],
+        "indicatorFields": [
+          {
+            "indicatorValue": false,
+            "nameCode": {
+              "codeValue": "TIME_ENABLED",
+              "shortName": "Time Enabled"
+            }
+          }
+        ]
+      },
+      "person": {
+        "birthDate": "XXXX-01-20",
+        "communication": {
+          "emails": [
+            {
+              "emailUri": "ifoosballpostman@adp.com",
+              "nameCode": {
+                "codeValue": "Personal"
+              }
+            }
+          ],
+          "landlines": [
+            {
+              "dialNumber": "2105555555",
+              "formattedNumber": "2105555555",
+              "nameCode": {
+                "codeValue": "Personal"
+              }
+            }
+          ],
+          "mobiles": [
+            {
+              "countryDialing": "1",
+              "dialNumber": "5128985859",
+              "formattedNumber": "5128985859",
+              "nameCode": {
+                "codeValue": "Personal"
+              }
+            }
+          ]
+        },
+        "ethnicityCode": {
+          "codeValue": "6",
+          "shortName": "Two or more races"
+        },
+        "formerNames": [
+          {
+            "formattedName": "testName"
+          }
+        ],
+        "genderCode": {
+          "codeValue": "F",
+          "longName": "Female",
+          "shortName": "Female"
+        },
+        "genderSelfIdentityCode": {
+          "longName": "Female"
+        },
+        "preferredGenderPronounCode": {
+          "longName": "Master"
+        },
+        "governmentIDs": [
+          {
+            "idValue": "XXXXXX9991",
+            "nameCode": {
+              "codeValue": "SSN",
+              "shortName": "Social Security Number"
+            }
+          }
+        ],
+        "legalAddress": {
+          "cityName": "SCityUs",
+          "countryCode": "US",
+          "countrySubdivisionLevel1": {
+            "codeValue": "GA",
+            "subdivisionType": "state"
+          },
+          "lineOne": "123",
+          "lineTwo": "Easy Street",
+          "postalCode": "33133"
+        },
+        "legalName": {
+          "familyName1": "Albright",
+          "givenName": "Anthony",
+          "middleName": "A"
+        },
+        "maritalStatusCode": {
+          "codeValue": "M",
+          "shortName": "Married"
+        },
+        "preferredName": {
+          "formattedName": "Hugh",
+          "givenName": "Hugh",
+          "familyName1": "Swindells",
+          "middleName": "G"
+        }
+      },
+      "workAssignments": [
+        {
+          "additionalRemunerations": [],
+          "assignedOrganizationalUnits": [],
+          "assignedWorkLocations": [
+            {
+              "address": {
+                "countryCode": "US",
+                "countrySubdivisionLevel1": {
+                  "codeValue": "AL",
+                  "subdivisionType": "state"
+                },
+                "nameCode": {
+                  "longName": "Address"
+                },
+                "postalCode": "35188"
+              }
+            }
+          ],
+          "baseRemuneration": {
+            "hourlyRateAmount": {
+              "amountValue": 1255,
+              "currencyCode": "USD",
+              "nameCode": {
+                "codeValue": "BASE",
+                "shortName": "Base Rate"
+              }
+            }
+          },
+          "homeOrganizationalUnits": [
+            {
+              "nameCode": {
+                "codeValue": "1",
+                "shortName": "xdfdg"
+              },
+              "typeCode": {
+                "codeValue": "DEPARTMENT",
+                "shortName": "Department"
+              }
+            }
+          ],
+          "payCycleCode": {
+            "codeValue": "M",
+            "shortName": "Monthly"
+          },
+          "primaryIndicator": true,
+          "remunerationBasisCode": {
+            "codeValue": "H",
+            "shortName": "Hourly"
+          },
+          "standardPayPeriodHours": {
+            "hoursQuantity": 45
+          },
+          "workerTypeCode": {
+            "codeValue": "W2",
+            "shortName": "Employee"
+          },
+          "workLevelCode": {
+            "codeValue": "Full time",
+            "shortName": "Full time"
+          }
+        }
+      ],
+      "workerDates": {
+        "adjustedServiceDate": "2019-05-20T00:00:00Z",
+        "originalHireDate": "2019-05-20",
+        "rehireDate": "2019-07-16"
+      },
+      "workerID": {
+        "idValue": "4",
+        "schemeCode": {
+          "shortName": "Employee ID"
+        }
+      },
+      "workerStatus": {
+        "statusCode": {
+          "codeValue": "A",
+          "shortName": "Active"
+        }
+      }
+    }
+  ]
+}

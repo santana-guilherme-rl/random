@@ -1,0 +1,71 @@
+{
+  "id": 1,
+  "source": "N/A",
+  "name": "Math 101",
+  "description": "string",
+  "site": {
+    "id": -1,
+    "name": "None"
+  },
+  "mobile_device_group": {
+    "id": 1,
+    "name": "string"
+  },
+  "students": [
+    {
+      "student": "Joey"
+    }
+  ],
+  "teachers": [
+    {
+      "teacher": "Mr. Smith"
+    }
+  ],
+  "teacher_ids": [
+    {
+      "id": 0
+    }
+  ],
+  "student_group_ids": [
+    {
+      "id": 0
+    }
+  ],
+  "teacher_group_ids": [
+    {
+      "id": 0
+    }
+  ],
+  "mobile_devices": [
+    {
+      "mobile_device": {
+        "name": "Tinas iPad",
+        "udid": "270aae10800b6e61a2ee2bbc285eb967050b5984",
+        "wifi_mac_address": "E0:AC:CB:97:36:G4"
+      }
+    }
+  ],
+  "mobile_device_group_id": [
+    {
+      "id": 1
+    }
+  ],
+  "meeting_times": {
+    "meeting_time": {
+      "days": "M W F",
+      "start_time": 1300,
+      "end_time": 1345
+    }
+  },
+  "apple_tvs": [
+    {
+      "apple_tv": {
+        "name": "Apple TV",
+        "udid": "3e8c9775cb3302ed9e645adf632cfa533adc3aa8",
+        "wifi_mac_address": "E0:AC:CB:97:36:G4",
+        "device_id": "E0:AC:CB:97:36:g5",
+        "airplay_password": "password"
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "payStatements": [
+    {
+      "payDate": "2023-11-22",
+      "netPayAmount": {
+        "amountValue": 910.3,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 1200,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 5760,
+        "currencyCode": "USD"
+      },
+      "totalHours": 40,
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230019_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230019_0/images/20230019_0_2.pdf"
+      }
+    },
+    {
+      "payDate": "2023-11-08",
+      "netPayAmount": {
+        "amountValue": 692.83,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 870,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 5310,
+        "currencyCode": "USD"
+      },
+      "totalHours": 29,
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230006_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230006_0/images/20230006_0_2.pdf"
+      }
+    },
+    {
+      "payDate": "2023-10-26",
+      "netPayAmount": {
+        "amountValue": 100,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 0,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 2190,
+        "currencyCode": "USD"
+      },
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/T0000001_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/T0000001_0/images/T0000001_0_2.pdf"
+      }
+    },
+    {
+      "payDate": "2023-10-25",
+      "netPayAmount": {
+        "amountValue": 557.07,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 690,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 2190,
+        "currencyCode": "USD"
+      },
+      "totalHours": 23,
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230015_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230015_0/images/20230015_0_2.pdf"
+      }
+    },
+    {
+      "payDate": "2023-10-25",
+      "netPayAmount": {
+        "amountValue": 602.65,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 750,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 2940,
+        "currencyCode": "USD"
+      },
+      "totalHours": 25,
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230017_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230017_0/images/20230017_0_2.pdf"
+      }
+    },
+    {
+      "payDate": "2023-10-25",
+      "netPayAmount": {
+        "amountValue": 602.64,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 750,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 3690,
+        "currencyCode": "USD"
+      },
+      "totalHours": 25,
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230004_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230004_0/images/20230004_0_2.pdf"
+      }
+    },
+    {
+      "payDate": "2023-10-18",
+      "netPayAmount": {
+        "amountValue": 602.65,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 750,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 1500,
+        "currencyCode": "USD"
+      },
+      "totalHours": 25,
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230003_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230003_0/images/20230003_0_2.pdf"
+      }
+    },
+    {
+      "payDate": "2023-10-04",
+      "netPayAmount": {
+        "amountValue": 602.64,
+        "currencyCode": "USD"
+      },
+      "grossPayAmount": {
+        "amountValue": 750,
+        "currencyCode": "USD"
+      },
+      "grossPayYTDAmount": {
+        "amountValue": 750,
+        "currencyCode": "USD"
+      },
+      "totalHours": 25,
+      "payDetailUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230001_0"
+      },
+      "statementImageUri": {
+        "href": "/payroll/v1/workers/G3J084588GWKD5YD/pay-statements/20230001_0/images/20230001_0_2.pdf"
+      }
+    }
+  ]
+}

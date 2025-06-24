@@ -1,0 +1,25 @@
+services:
+  elasticsearch:
+    image: docker.io/bitnami/elasticsearch:8
+      #environment:
+      #- discovery.type=single-node
+      #- xpack.security.enabled=false
+      #- xpack.security.enrollment.enabled=false
+    volumes:
+      - "elasticsearch_data:/bitnami/elasticsearch"
+  kibana:
+    image: docker.io/bitnami/kibana:8
+    ports:
+      - "5601:5601"
+    volumes:
+      - "kibana_data:/bitnami/kibana"
+    environment:
+      - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=a7a6311933d3503b89bc2dbc36572c33a6c10925682e591bffcab6911c06786d
+    depends_on:
+      - elasticsearch
+volumes:
+  elasticsearch_data:
+    driver: local
+  kibana_data:
+    driver: local
+

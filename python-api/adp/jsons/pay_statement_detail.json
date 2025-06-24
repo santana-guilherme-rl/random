@@ -1,0 +1,303 @@
+{
+  "payStatement": {
+    "payDate": "2023-11-24",
+    "payPeriod": {
+      "startDate": "2023-11-20",
+      "endDate": "2023-11-26"
+    },
+    "netPayAmount": {
+      "amountValue": 736.67,
+      "currencyCode": "USD"
+    },
+    "grossPayAmount": {
+      "amountValue": 958.39,
+      "currencyCode": "USD"
+    },
+    "grossPayYTDAmount": {
+      "amountValue": 46163.39,
+      "currencyCode": "USD"
+    },
+    "totalHours": 41.03,
+    "earnings": [
+      {
+        "earningCodeName": "Regular",
+        "earningAmount": {
+          "amountValue": 208.39,
+          "currencyCode": "USD"
+        },
+        "payPeriodHours": 16.03,
+        "earningYTDAmount": {
+          "amountValue": 46163.39,
+          "currencyCode": "USD"
+        }
+      },
+      {
+        "earningCodeName": "Regular",
+        "earningAmount": {
+          "amountValue": 750,
+          "currencyCode": "USD"
+        },
+        "payPeriodHours": 25,
+        "earningYTDAmount": {
+          "amountValue": 0,
+          "currencyCode": "USD"
+        }
+      }
+    ],
+    "deductions": [
+      {
+        "codeName": "Social Security",
+        "deductionAmount": {
+          "amountValue": -59.42,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 2862.13,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Taxes"
+      },
+      {
+        "codeName": "Medicare",
+        "deductionAmount": {
+          "amountValue": -13.9,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 669.37,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Taxes"
+      },
+      {
+        "codeName": "California State Income Tax",
+        "deductionAmount": {
+          "amountValue": -28.4,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 5007.47,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Taxes"
+      },
+      {
+        "codeName": "Roth 401(k) plan $",
+        "deductionAmount": {
+          "amountValue": 0,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 15000,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Retirement"
+      },
+      {
+        "codeName": "Roth 457(b) plan $",
+        "deductionAmount": {
+          "amountValue": 0,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 112,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Retirement"
+      },
+      {
+        "codeName": "Roth 401(k) plan %",
+        "deductionAmount": {
+          "amountValue": 0,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 275,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Retirement"
+      },
+      {
+        "codeName": "529 savings plan",
+        "deductionAmount": {
+          "amountValue": -60,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 180,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Other"
+      },
+      {
+        "codeName": "401(k) loan",
+        "deductionAmount": {
+          "amountValue": -60,
+          "currencyCode": "USD"
+        },
+        "deductionYTDAmount": {
+          "amountValue": 180,
+          "currencyCode": "USD"
+        },
+        "preTaxIndicator": false,
+        "deductionCategoryCodeName": "Other"
+      }
+    ],
+    "directDeposits": [
+      {
+        "depositAmount": {
+          "amountValue": 230,
+          "currencyCode": "USD"
+        },
+        "financialPartyRoutingID": "xxxxxxxxx",
+        "financialAccountTypeName": "Direct Deposit",
+        "financialAccountID": "xxxx2222"
+      },
+      {
+        "depositAmount": {
+          "amountValue": 294.67,
+          "currencyCode": "USD"
+        },
+        "financialPartyRoutingID": "xxxxxxxxx",
+        "financialAccountTypeName": "Direct Deposit",
+        "financialAccountID": "xxxx8280"
+      },
+      {
+        "depositAmount": {
+          "amountValue": 212,
+          "currencyCode": "USD"
+        },
+        "financialPartyRoutingID": "xxxxxxxxx",
+        "financialAccountTypeName": "Direct Deposit",
+        "financialAccountID": "xxxx8280"
+      }
+    ],
+    "deductionCategoryDetails": [
+      {
+        "deductionCategoryCodeName": "Taxes",
+        "deductionCategoryTotalPeriodAmount": {
+          "amountValue": -101.72,
+          "currencyCode": "USD"
+        },
+        "deductionCategoryTotalYTDAmount": {
+          "amountValue": 8538.97,
+          "currencyCode": "USD"
+        }
+      },
+      {
+        "deductionCategoryCodeName": "Retirement",
+        "deductionCategoryTotalPeriodAmount": {
+          "amountValue": 0,
+          "currencyCode": "USD"
+        },
+        "deductionCategoryTotalYTDAmount": {
+          "amountValue": 15387,
+          "currencyCode": "USD"
+        }
+      },
+      {
+        "deductionCategoryCodeName": "Other",
+        "deductionCategoryTotalPeriodAmount": {
+          "amountValue": -120,
+          "currencyCode": "USD"
+        },
+        "deductionCategoryTotalYTDAmount": {
+          "amountValue": 360,
+          "currencyCode": "USD"
+        }
+      }
+    ],
+    "payDistributions": [
+      {
+        "itemID": "0",
+        "payrollFileNumber": "20230008",
+        "distributions": [
+          {
+            "itemID": "0",
+            "paymentMethodCode": {
+              "codeValue": "DirectDeposit",
+              "shortName": "Direct Deposit"
+            },
+            "distributionAmount": {
+              "amountValue": 230,
+              "currencyCode": "USD"
+            },
+            "depositAccount": {
+              "financialParty": {
+                "routingTransitID": {
+                  "idValue": "xxxxxxxxx"
+                }
+              },
+              "financialAccount": {
+                "accountNumber": "xxxx2222",
+                "typeCode": {
+                  "codeValue": "notIncludedInVoucher",
+                  "shortName": "Direct Deposit"
+                }
+              }
+            }
+          },
+          {
+            "itemID": "1",
+            "paymentMethodCode": {
+              "codeValue": "DirectDeposit",
+              "shortName": "Direct Deposit"
+            },
+            "distributionAmount": {
+              "amountValue": 294.67,
+              "currencyCode": "USD"
+            },
+            "depositAccount": {
+              "financialParty": {
+                "routingTransitID": {
+                  "idValue": "xxxxxxxxx"
+                }
+              },
+              "financialAccount": {
+                "accountNumber": "xxxx8280",
+                "typeCode": {
+                  "codeValue": "notIncludedInVoucher",
+                  "shortName": "Direct Deposit"
+                }
+              }
+            }
+          },
+          {
+            "itemID": "2",
+            "paymentMethodCode": {
+              "codeValue": "DirectDeposit",
+              "shortName": "Direct Deposit"
+            },
+            "distributionAmount": {
+              "amountValue": 212,
+              "currencyCode": "USD"
+            },
+            "depositAccount": {
+              "financialParty": {
+                "routingTransitID": {
+                  "idValue": "xxxxxxxxx"
+                }
+              },
+              "financialAccount": {
+                "accountNumber": "xxxx8280",
+                "typeCode": {
+                  "codeValue": "notIncludedInVoucher",
+                  "shortName": "Direct Deposit"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "memos": [],
+    "adjustmentIndicator": false
+  }
+}
